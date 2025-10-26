@@ -97,10 +97,7 @@ const Hero: React.FC = () => {
           aria-hidden='true'
         >
           {/* FIX: assets in /public are served at the root. Use /baby.mp4, not /public/baby.mp4 */}
-          <source
-            src='https://github.com/tushanafnan/linguasphere/releases/download/1.0.1/baby.mp44'
-            type='video/mp4'
-          />
+          <source src='/videos/baby.mp4' type='video/mp4' />
         </video>
 
         {/* Fallback image (shown if reduced-motion or video fails) */}
