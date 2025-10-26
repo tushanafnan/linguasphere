@@ -97,7 +97,10 @@ const Hero: React.FC = () => {
           aria-hidden='true'
         >
           {/* FIX: assets in /public are served at the root. Use /baby.mp4, not /public/baby.mp4 */}
-          <source src='/videos/baby.mp4' type='video/mp4' />
+          <source
+            src='https://res.cloudinary.com/dk4p31whc/video/upload/v1761495593/baby_njzw2u.mp4'
+            type='video/mp4'
+          />
         </video>
 
         {/* Fallback image (shown if reduced-motion or video fails) */}
