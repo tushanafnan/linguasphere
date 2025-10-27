@@ -1,5 +1,4 @@
 import AboutSection from "../components/AboutSection";
-import ContactSection from "../components/ContactSection";
 import CtaSection from "../components/CtaSection";
 import ServiceSection from "../components/FeatureSection";
 import Hero from "../components/Hero";
@@ -30,8 +29,8 @@ const Home = () => {
       {/* CTA Section */}
       <CtaSection />
 
-      {/* Contact Section */}
-      <ContactSection />
+      {/* Contact Section
+      <ContactSection /> */}
     </div>
   );
 };
