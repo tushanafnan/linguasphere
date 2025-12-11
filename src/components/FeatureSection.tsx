@@ -61,12 +61,12 @@ const Reveal: React.FC<RevealProps> = ({
    Data
 ------------------------------------- */
 const quickIcons = [
-  { icon: FiPhone, label: "Online guidance" },
-  { icon: FiMapPin, label: "Experienced facilitators" },
-  { icon: FiMail, label: "Proven outcomes" },
-  { icon: FiClock, label: "Native teachers" },
-  { icon: FiMapPin, label: "Interactive learning" },
-  { icon: FiClock, label: "Small-class courses" },
+  { icon: FiPhone, label: "在线指导" },
+  { icon: FiMapPin, label: "资深引导师" },
+  { icon: FiMail, label: "经验证的成果" },
+  { icon: FiClock, label: "母语教师" },
+  { icon: FiMapPin, label: "互动式学习" },
+  { icon: FiClock, label: "小班课程" },
 ];
 
 /* ------------------------------------
@@ -101,11 +101,10 @@ export default function Feature() {
                        text-[clamp(2rem,5vw,3rem)] leading-[1.06]
                        bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-indigo-800 to-indigo-600'
           >
-            Learning Experience
+            学习体验
           </h2>
           <p className='mt-4 text-slate-600 text-[clamp(1rem,1.25vw,1.125rem)]'>
-            Live, interactive, and measurable—designed to help learners progress
-            with confidence.
+            鲜活互动、效果可测——帮孩子自信学、稳步进！
           </p>
         </Reveal>
 
@@ -167,18 +166,16 @@ export default function Feature() {
                            motion-reduce:transform-none'
               >
                 <h3 className='text-slate-900 font-semibold text-[clamp(1.25rem,2vw,1.5rem)]'>
-                  100% Native‑English Teachers
+                  100%母语英语教师
                 </h3>
                 <p className='mt-3 text-slate-700 leading-relaxed text-[clamp(1rem,1.1vw,1.0625rem)]'>
-                  Certified instructors from native‑English countries with deep
-                  experience in children’s English—clear pronunciation, cultural
-                  depth, and age‑appropriate pedagogy.
+                  来自英语母语国家的持证教师，具备丰富的少儿英语教学经验——发音标准、深谙英语文化内涵，且掌握适龄化教学方法。
                 </p>
                 <ul className='mt-4 space-y-2 text-slate-700'>
                   {[
-                    "Mother‑tongue clarity with real‑world context.",
-                    "Structured lessons with clear objectives.",
-                    "Ongoing assessment and precise parent feedback.",
+                    "结合真实场景的母语级清晰表达",
+                    "目标明确的结构化课程",
+                    "持续的学情评估与精准的家长反馈",
                   ].map((line) => (
                     <li key={line} className='flex gap-2'>
                       <span
@@ -211,18 +208,16 @@ export default function Feature() {
                            motion-reduce:transform-none'
               >
                 <h3 className='text-slate-900 font-semibold text-[clamp(1.25rem,2vw,1.5rem)]'>
-                  Interactive Learning — “Purple Adventure”
+                  互动学习——“紫趣探险”
                 </h3>
                 <p className='mt-3 text-slate-700 leading-relaxed text-[clamp(1rem,1.1vw,1.0625rem)]'>
-                  Mission‑based journeys blend role‑play, digital storybooks,
-                  and badges. Weekly themes turn listening, speaking, reading,
-                  and writing into purposeful challenges.
+                  任务式探险融合角色扮演、电子绘本与奖励徽章，每周主题把听说读写变成趣味闯关。
                 </p>
                 <ul className='mt-4 space-y-2 text-slate-700'>
                   {[
-                    "Role‑play builds real communication skills.",
-                    "Storybooks add comprehension & fluency tasks.",
-                    "Badges and missions keep motivation high.",
+                    "角色扮演练出实用沟通力",
+                    "绘本加持，提升阅读理解与表达流畅度",
+                    "徽章+任务，让学习热情一路在线",
                   ].map((line) => (
                     <li key={line} className='flex gap-2'>
                       <span
@@ -255,18 +250,16 @@ export default function Feature() {
                            motion-reduce:transform-none'
               >
                 <h3 className='text-slate-900 font-semibold text-[clamp(1.25rem,2vw,1.5rem)]'>
-                  Small‑Class Courses (4–6 Learners)
+                  小班课：4–6人班
                 </h3>
                 <p className='mt-3 text-slate-700 leading-relaxed text-[clamp(1rem,1.1vw,1.0625rem)]'>
-                  Tight groups guarantee airtime—each 45‑minute class ensures
-                  every learner speaks, with personal feedback and flexible
-                  scheduling.
+                  小班教学保障开口机会：45分钟课上人人发言，搭配个性化反馈+灵活排课。
                 </p>
                 <ul className='mt-4 space-y-2 text-slate-700'>
                   {[
-                    "Guaranteed participation & high engagement.",
-                    "Feedback tailored to style, pace, and goals.",
-                    "Optional 1‑to‑1 add‑ons and teacher choice.",
+                    "参与度拉满，全程专注不掉线",
+                    "反馈适配个人学习风格、节奏与目标",
+                    "可选1对1加课，自选老师",
                   ].map((line) => (
                     <li key={line} className='flex gap-2'>
                       <span
@@ -295,7 +288,7 @@ export default function Feature() {
                          hover:from-indigo-600/90 hover:to-fuchsia-600/90
                          focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500'
             >
-              Book Now
+              立即预约
             </a>
           </div>
         </Reveal>

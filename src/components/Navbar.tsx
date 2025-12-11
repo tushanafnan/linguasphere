@@ -12,11 +12,11 @@ import React, { useEffect, useRef, useState } from "react";
  */
 
 const NAV_ITEMS = [
-  { label: "About", path: "/about" },
-  { label: "Features", path: "/features" },
-  { label: "Plans", path: "/subscription" },
-  { label: "Student Login", path: "/login" },
-  { label: "Contact", path: "/contact" },
+  { label: "关于我们", path: "/about" },
+  { label: "课程特色", path: "/features" },
+  { label: "套餐方案", path: "/subscription" },
+  { label: "学员登录", path: "/login" },
+  { label: "联系我们", path: "/contact" },
 ];
 
 const Navbar: React.FC = () => {
@@ -148,7 +148,7 @@ const Navbar: React.FC = () => {
           <button
             onClick={() => navigate("/")}
             className='group flex items-center gap-3 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-xl'
-            aria-label='Go to home'
+            aria-label='返回首页'
           >
             <img
               src='https://res.cloudinary.com/dk4p31whc/image/upload/v1760330547/logo_aisymv.png'
@@ -206,7 +206,7 @@ const Navbar: React.FC = () => {
                          shadow-sm hover:from-indigo-600/90 hover:to-fuchsia-600/90
                          focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition'
             >
-              Book Now
+              立即预约
             </button>
           </div>
 
@@ -214,7 +214,7 @@ const Navbar: React.FC = () => {
           <div className='md:hidden'>
             <button
               onClick={() => setIsOpen((v) => !v)}
-              aria-label='Toggle menu'
+              aria-label='切换菜单'
               aria-controls='mobile-menu'
               aria-expanded={isOpen}
               className='inline-flex items-center justify-center rounded-xl p-2
@@ -285,7 +285,7 @@ const Navbar: React.FC = () => {
                                shadow-sm hover:from-indigo-600/90 hover:to-fuchsia-600/90
                                focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition'
                   >
-                    Book Now
+                    立即预约
                   </button>
                 </li>
               </ul>

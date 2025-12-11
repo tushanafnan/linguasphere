@@ -20,33 +20,23 @@ const PlansSection: React.FC<PlansSectionProps> = ({
 }) => {
   const Plans: Plan[] = [
     {
-      title: "1-to-1 Online Tutoring",
+      title: "1对1在线辅导",
       description:
-        "Personalised English coaching with an expert tutor. Minimum 6 hours with flexible weekly/bi-weekly scheduling. Each lesson targets clear goals and ends with a concise progress note for parents.",
+        "专属英语辅导，配资深教师1对1带练。最低6小时起，可灵活选每周/每两周上课。每节课都有明确学习目标，课后还会给家长发简洁的进度小结~",
       // keep price for overlay only
-      price: "¥330/hour · min 6 hours",
+      price: "¥330/小时 · 最低6小时起订",
       image:
         "https://t4.ftcdn.net/jpg/03/76/92/79/360_F_376927916_fEOIvubxQSXb9YbNgvvpkdkQsbUsMZ9r.jpg",
-      tags: [
-        "Personalised 1:1",
-        "DBS-checked tutor",
-        "Flexible schedule",
-        "Progress feedback",
-      ],
+      tags: ["定制1对1", "DBS认证教师", "灵活排课", "进度反馈"],
     },
     {
-      title: "Small-Group Online Tutoring",
+      title: "小组在线辅导",
       description:
-        "High-value classes with 4–6 learners led by the same expert teachers. Collaborative tasks, structured interaction, and weekly study snapshots for parents keep momentum high.",
-      price: "¥180/hour · ¥162 with 6+ hours",
+        "高性价比小班课，4-6人一班，同样是资深教师带队。课堂有协作任务、互动环节，每周还会给家长发学习快照，让孩子学习热情不掉线！",
+      price: "¥180/小时 · 订6小时以上仅¥162/小时",
       image:
         "https://readwritethink.ca/wp-content/uploads/2021/01/online-tutoring.jpg",
-      tags: [
-        "4–6 learners",
-        "Peer interaction",
-        "Expert instructor",
-        "Weekly snapshot",
-      ],
+      tags: ["4–6人小班", "同伴互动", "资深讲师", "每周学习快照"],
     },
   ];
 
@@ -68,12 +58,10 @@ const PlansSection: React.FC<PlansSectionProps> = ({
                        text-[clamp(2rem,5vw,3rem)] leading-[1.06]
                        bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-indigo-800 to-indigo-600'
           >
-            Learning Experience
+            辅导方案
           </h2>
           <p className='mt-5 text-lg text-slate-600 max-w-3xl mx-auto'>
-            Choose personalised 1-to-1 coaching or engaging small-group
-            sessions. Every class is live, interactive, and focused on
-            measurable progress you can trust.
+            选定制化1对1辅导，或是趣味小组课——每节课都是真人直播、互动满满，进步看得见，靠谱又安心。
           </p>
         </div>
 

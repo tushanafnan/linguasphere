@@ -62,34 +62,34 @@ const Reveal: React.FC<RevealProps> = ({
 -----------------------*/
 const AboutSection: React.FC = () => {
   const stats = [
-    { k: "18+", v: "Years Experience" },
-    { k: "4–16", v: "Age Range" },
-    { k: "1:1", v: "Personal Tutoring" },
-    { k: "DBS✓", v: "Vetted Tutors" },
+    { k: "18+", v: "年+教学经验" },
+    { k: "4–16", v: "岁适用年龄段" },
+    { k: "1:1", v: "定制一对一课程" },
+    { k: "DBS✓", v: "DBS认证师资" },
   ];
 
   const subjects = [
-    "Maths",
-    "English",
-    "Science",
-    "11+ Preparation",
-    "GCSE Prep",
-    "Homework Clinics",
-    "Creative Writing",
-    "Reading Clubs",
-    "Times Tables",
-    "Pre-A-Level Skills",
+    "Maths（数学）",
+    "English（英语）",
+    "Science（科学）",
+    "11+ Preparation（11+考试备考）",
+    "GCSE Prep（GCSE备考）",
+    "Homework Clinics（作业辅导）",
+    "Creative Writing（创意写作）",
+    "Reading Clubs（阅读俱乐部）",
+    "Times Tables（乘法表）",
+    "Pre-A-Level Skills（预备班技能）",
   ];
 
   const benefits = [
-    "One-to-One Lessons",
-    "Small-Group Learning",
-    "Easy Access Online",
-    "Consistent Structure",
-    "Targeted Improvement",
-    "Independent Learning",
-    "Specialist Tutors",
-    "No Falling Behind",
+    "一对一专属课程",
+    "小班互动学习",
+    "在线轻松参与",
+    "结构清晰有条理",
+    "针对性提升能力",
+    "培养独立学习习惯",
+    "资深专业导师团队",
+    "不再跟不上进度",
   ];
 
   return (
@@ -114,7 +114,7 @@ const AboutSection: React.FC = () => {
             className='font-serif font-bold tracking-tight text-slate-800
                        text-[clamp(2rem,5vw,3rem)] leading-[1.1]'
           >
-            Our Story
+            品牌故事
           </h2>
         </Reveal>
 
@@ -131,28 +131,24 @@ const AboutSection: React.FC = () => {
                 className='text-indigo-700 font-bold leading-tight
                            text-[clamp(1.25rem,2.2vw,1.5rem)]'
               >
-                Empowering Students Through Online Learning Excellence
+                用优质在线学习，给孩子成长“加buff”
               </h3>
             </Reveal>
 
             <Reveal delay={60}>
               <p className='text-slate-700 leading-relaxed text-[clamp(1rem,1.4vw,1.125rem)]'>
-                Linguasphere has over <strong>18 years</strong> of experience
-                helping learners aged 4–16 thrive through engaging, face-to-face
-                online lessons. Our mission is to make education accessible,
-                structured, and deeply inspiring—from early reading to GCSE
-                preparation.
+                Linguasphere 有超过<strong>18年</strong>的教学经验，专注帮助
+                4–16
+                岁孩子，通过生动、有互动感的在线“面对面”课堂不断成长、发光发亮。我们的使命，是让教育变得“够得着、有章法、超有趣”——从启蒙阅读到
+                GCSE 备考，一路陪伴孩子前进。
               </p>
             </Reveal>
 
             <Reveal delay={120}>
               <p className='text-slate-700 leading-relaxed text-[clamp(1rem,1.4vw,1.125rem)]'>
-                Each tutor is{" "}
-                <span className='font-semibold'>
-                  hand-picked and DBS-checked
-                </span>
-                , delivering personalized sessions designed to build confidence
-                and long-term learning success.
+                每一位导师都经过
+                <span className='font-semibold'>严格筛选与 DBS 安全认证</span>
+                ，根据孩子的水平与目标定制课程，帮助他们在轻松的氛围中建立自信，收获长期稳定的学习成效。
               </p>
             </Reveal>
 
@@ -199,7 +195,7 @@ const AboutSection: React.FC = () => {
                   />
                 </div>
                 <figcaption className='absolute top-3 left-3 bg-white/85 backdrop-blur px-3 py-1.5 rounded-full text-xs font-semibold text-indigo-700 shadow'>
-                  Online • Safe • Interactive
+                  在线 • 安全 • 高互动
                 </figcaption>
               </figure>
             </Reveal>
@@ -208,7 +204,7 @@ const AboutSection: React.FC = () => {
             <div className='pt-4'>
               <Reveal delay={160}>
                 <h4 className='text-slate-900 font-semibold mb-2 text-[clamp(1rem,1.2vw,1.125rem)]'>
-                  Our Tutoring Subjects
+                  辅导科目
                 </h4>
               </Reveal>
               <ul className='flex flex-wrap gap-2'>
@@ -267,23 +263,21 @@ const AboutSection: React.FC = () => {
                   className='bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-semibold shadow transition
                              focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500'
                 >
-                  Book a Free Trial
+                  预约免费试听
                 </a>
                 <Link
                   to='/contact'
                   className='border border-slate-300 px-6 py-3 rounded-xl font-semibold text-slate-800 hover:bg-slate-50 transition
                              focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500'
                 >
-                  Contact Us
+                  联系我们
                 </Link>
               </div>
             </Reveal>
 
             <Reveal delay={240}>
               <p className='text-sm text-slate-600 leading-relaxed pt-2'>
-                Our free assessments in Maths, English, and Science reveal your
-                child’s strengths and areas to improve—helping you make
-                confident choices for their learning journey.
+                我们提供数学、英语和科学的免费测评，帮助家长更清晰地了解孩子的优势与待提升之处，从而为他们规划更合适、更有信心的学习路径。
               </p>
             </Reveal>
           </div>
@@ -310,7 +304,7 @@ const AboutSection: React.FC = () => {
                 </div>
 
                 <div className='absolute top-4 left-4 bg-white/85 backdrop-blur px-4 py-2 rounded-full text-xs font-semibold text-indigo-700 shadow'>
-                  Online • Safe • Interactive
+                  在线 • 安全 • 高互动
                 </div>
               </div>
             </Reveal>

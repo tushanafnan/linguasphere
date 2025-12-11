@@ -94,18 +94,17 @@ const Footer: React.FC = () => {
   const [error, setError] = useState<string>("");
 
   const quickLinks = [
-    { label: "About", href: "/about" },
-    { label: "Features", href: "/features" },
-    { label: "Plans", href: "/plans" }, // ← standardized
-    { label: "Testimonials", href: "/testimonials" },
-    { label: "Contact", href: "/contact" },
+    { label: "品牌故事", href: "/about" },
+    { label: "课程特色", href: "/features" },
+    { label: "辅导方案", href: "/plans" }, // ← standardized
+    { label: "家长评价", href: "/testimonials" },
+    { label: "联系我们", href: "/contact" },
   ];
 
   const contactInfo = [
-    "Dalian, Liaoning",
-    "China",
-    "+86 157 2453 8545",
-    "tush@jordan.com",
+    "中国辽宁省大连市",
+    "电话：+86 157 2453 8545",
+    "邮箱：tush@jordan.com",
   ];
 
   const socialLinks = [
@@ -122,13 +121,13 @@ const Footer: React.FC = () => {
 
     const val = email.trim();
     if (!val) {
-      setError("Email is required");
+      setError("邮箱为必填项");
       setStatus("error");
       return;
     }
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(val)) {
-      setError("Invalid email address");
+      setError("邮箱格式不正确");
       setStatus("error");
       return;
     }
@@ -145,8 +144,8 @@ const Footer: React.FC = () => {
         setEmail("");
       } else {
         // Fallback: open mail client prefilled (no secrets in client)
-        const subject = "Newsletter subscription";
-        const body = `Hello,\n\nPlease subscribe me to your newsletter:\nEmail: ${val}\n\nThanks!`;
+        const subject = "订阅电子邮件通讯";
+        const body = `您好，\n\n请帮我订阅你们的电子邮件通讯：\n邮箱：${val}\n\n谢谢！`;
         window.location.href = `mailto:${MAIL_TO}?subject=${encodeURIComponent(
           subject
         )}&body=${encodeURIComponent(body)}`;
@@ -155,7 +154,7 @@ const Footer: React.FC = () => {
       }
     } catch (err: unknown) {
       setStatus("error");
-      setError(getErrorMessage(err) || "Something went wrong");
+      setError(getErrorMessage(err) || "发生错误，请稍后重试");
       console.error(err);
     }
   };
@@ -181,19 +180,18 @@ const Footer: React.FC = () => {
                 Linguasphere
               </h3>
               <p className='text-slate-300 text-[clamp(0.98rem,1vw,1.05rem)]'>
-                Specialist online English tutoring for ages 4–16. Native UK
-                teachers, 1‑to‑1 and small‑group classes, and measurable
-                progress parents can trust.
+                专注 4–16
+                岁少儿在线英语辅导。英籍母语外教，一对一与小班课程结合，让家长看得见孩子的进步。
               </p>
               <div className='mt-4 flex flex-wrap gap-2 text-xs'>
                 <span className='rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/10'>
-                  DBS‑checked
+                  通过 DBS 背景审查
                 </span>
                 <span className='rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/10'>
-                  Native UK Teachers
+                  英籍母语外教
                 </span>
                 <span className='rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/10'>
-                  Ages 4–16
+                  适合 4–16 岁
                 </span>
               </div>
             </div>
@@ -203,7 +201,7 @@ const Footer: React.FC = () => {
           <Reveal delay={60}>
             <nav aria-label='Footer quick links'>
               <h4 className='font-semibold mb-4 text-[clamp(1rem,1.2vw,1.125rem)]'>
-                Quick Links
+                快速导航
               </h4>
               <ul className='space-y-2 text-slate-300'>
                 {quickLinks.map((link) => (
@@ -224,7 +222,7 @@ const Footer: React.FC = () => {
           <Reveal delay={120}>
             <div>
               <h4 className='font-semibold mb-4 text-[clamp(1rem,1.2vw,1.125rem)]'>
-                Contact
+                联系方式
               </h4>
               <ul className='space-y-2 text-slate-300'>
                 {contactInfo.map((info, i) => (
@@ -238,11 +236,10 @@ const Footer: React.FC = () => {
           <Reveal delay={180}>
             <div>
               <h4 className='font-semibold mb-4 text-[clamp(1rem,1.2vw,1.125rem)]'>
-                Stay in the Loop
+                获取最新课程资讯
               </h4>
               <p className='text-slate-300 mb-4'>
-                Get study tips, free resources, and early access to new class
-                openings.
+                获取学习小贴士、免费资源，以及新课程开放的优先通知。
               </p>
 
               {/* Status */}
@@ -258,18 +255,18 @@ const Footer: React.FC = () => {
                 }`}
               >
                 {status === "success"
-                  ? "Thanks! Check your mail app if it opened."
+                  ? "谢谢订阅！如果邮箱应用已打开，请在其中确认发送。"
                   : ""}
               </div>
 
               <form onSubmit={handleSubscribe} className='flex' noValidate>
                 <label htmlFor='newsletter-email' className='sr-only'>
-                  Email address
+                  邮箱地址
                 </label>
                 <input
                   id='newsletter-email'
                   type='email'
-                  placeholder='Your email'
+                  placeholder='请输入邮箱地址'
                   className='w-full px-4 py-3 bg-white text-slate-900 rounded-l-xl outline-none text-[clamp(0.95rem,1vw,1rem)]'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
@@ -285,7 +282,7 @@ const Footer: React.FC = () => {
                   className='bg-slate-800 hover:bg-slate-700 px-4 py-3 rounded-r-xl transition disabled:opacity-70 disabled:cursor-not-allowed text-[clamp(0.95rem,1vw,1rem)]'
                   disabled={status === "sending"}
                 >
-                  {status === "sending" ? "Subscribing..." : "Subscribe"}
+                  {status === "sending" ? "正在订阅..." : "订阅"}
                 </button>
               </form>
 
@@ -307,8 +304,7 @@ const Footer: React.FC = () => {
           <div className='border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4'>
             <p className='text-slate-300'>
               © {new Date().getFullYear()}{" "}
-              <span className='font-medium'>Linguasphere</span>. All rights
-              reserved.
+              <span className='font-medium'>Linguasphere</span>。保留所有权利。
             </p>
             <div className='flex items-center gap-5 text-slate-300'>
               {socialLinks.map(({ Icon, href, label }) => (

@@ -129,7 +129,7 @@ const Hero: React.FC = () => {
       <div className='relative z-10 mx-auto max-w-screen-xl px-6'>
         <Reveal className='text-center'>
           <span className='inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-1.5 text-white/90 ring-1 ring-white/15 backdrop-blur'>
-            Live • 1‑to‑1 & Small Groups • Ages 4–16
+            直播 • 1对1 & 小班 • 4–16岁
           </span>
         </Reveal>
 
@@ -141,7 +141,7 @@ const Hero: React.FC = () => {
               text-[clamp(2.2rem,6vw,4rem)]
             '
           >
-            Live English Tutoring with a Native UK Teacher
+            母语外教在线实时英语辅导
           </h1>
         </Reveal>
 
@@ -152,8 +152,7 @@ const Hero: React.FC = () => {
               text-[clamp(1.05rem,1.6vw,1.25rem)]
             '
           >
-            Personalized 1‑to‑1 and small‑group lessons for ages 4–16. Engaging,
-            structured, and designed to build real confidence in every student.
+            4–16岁专属定制：1对1+小班课，有趣又系统，帮每个孩子练出真自信~
           </p>
         </Reveal>
 
@@ -175,7 +174,7 @@ const Hero: React.FC = () => {
                 text-[clamp(1rem,1.2vw,1.0625rem)]
               '
             >
-              Start Learning <FiArrowRight />
+              开始学习 <FiArrowRight />
             </a>
 
             {/* Secondary CTA */}
@@ -196,7 +195,7 @@ const Hero: React.FC = () => {
                 text-[clamp(1rem,1.2vw,1.0625rem)]
               '
             >
-              <FiPlay /> Watch Video
+              <FiPlay /> 观看课程视频
             </a>
           </div>
         </Reveal>

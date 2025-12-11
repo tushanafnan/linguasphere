@@ -112,29 +112,29 @@ const ContactSection: React.FC = () => {
     const errs: FormErrors = {};
     const { firstName, lastName, email, phone, message } = formData;
 
-    if (!firstName.trim()) errs.firstName = "First name is required";
-    else if (firstName.trim().length > 50) errs.firstName = "Max 50 characters";
+    if (!firstName.trim()) errs.firstName = "名字为必填项";
+    else if (firstName.trim().length > 50) errs.firstName = "最多50个字符";
     else if (!NAME_RE.test(firstName.trim()))
-      errs.firstName = "Use letters, spaces, apostrophes, or hyphens";
+      errs.firstName = "仅限字母、空格、撇号或连字符";
 
-    if (!lastName.trim()) errs.lastName = "Last name is required";
-    else if (lastName.trim().length > 50) errs.lastName = "Max 50 characters";
+    if (!lastName.trim()) errs.lastName = "姓氏为必填项";
+    else if (lastName.trim().length > 50) errs.lastName = "最多50个字符";
     else if (!NAME_RE.test(lastName.trim()))
-      errs.lastName = "Use letters, spaces, apostrophes, or hyphens";
+      errs.lastName = "仅限字母、空格、撇号或连字符";
 
-    if (!email.trim()) errs.email = "Email is required";
-    else if (email.length > 100) errs.email = "Email too long";
-    else if (!EMAIL_RE.test(email)) errs.email = "Invalid email";
+    if (!email.trim()) errs.email = "邮箱为必填项";
+    else if (email.length > 100) errs.email = "邮箱长度过长";
+    else if (!EMAIL_RE.test(email)) errs.email = "邮箱格式不正确";
 
-    if (!phone.trim()) errs.phone = "Phone number is required";
+    if (!phone.trim()) errs.phone = "手机号为必填项";
     else {
       const digits = phone.replace(/\D/g, "");
       if (digits.length < 7 || digits.length > 15)
-        errs.phone = "Enter a valid phone number (7–15 digits)";
+        errs.phone = "请输入有效手机号（7–15位数字）";
     }
 
-    if (!message.trim()) errs.message = "Message is required";
-    else if (message.length > 500) errs.message = "Max 500 characters";
+    if (!message.trim()) errs.message = "留言内容为必填项";
+    else if (message.length > 500) errs.message = "最多500个字符";
 
     return errs;
   };
@@ -173,20 +173,20 @@ const ContactSection: React.FC = () => {
         });
         if (!res.ok) throw new Error(`Request failed: ${res.status}`);
         setSubmitState("success");
-        setStatusMsg("Thanks! Your message has been sent.");
+        setStatusMsg("感谢您的留言！我们已成功收到。");
       } else {
-        const subject = "New contact message from the website";
+        const subject = "来自网站的新联系方式留言";
         const body = [
-          `Name: ${formData.firstName} ${formData.lastName}`,
-          `Email: ${formData.email}`,
-          `Phone: ${formData.phone}`,
+          `姓名：${formData.firstName} ${formData.lastName}`,
+          `邮箱：${formData.email}`,
+          `电话：${formData.phone}`,
           "",
-          "Message:",
+          "留言：",
           formData.message,
         ].join("\n");
         window.location.href = buildMailtoUrl(MAIL_TO, subject, body);
         setSubmitState("success");
-        setStatusMsg("Please send the email in your mail app (prefilled).");
+        setStatusMsg("请在您的邮箱应用中发送这封已预填好的邮件。");
       }
 
       setFormData({
@@ -199,7 +199,7 @@ const ContactSection: React.FC = () => {
       setErrors({});
     } catch (err) {
       setSubmitState("error");
-      setStatusMsg(getErrorMessage(err) || "Failed to send message.");
+      setStatusMsg(getErrorMessage(err) || "发送留言失败。");
       console.error(err);
     } finally {
       setTimeout(() => {
@@ -231,10 +231,10 @@ const ContactSection: React.FC = () => {
             className='font-serif font-bold tracking-tight text-slate-800
                        text-[clamp(1.875rem,3.4vw,2.75rem)] leading-[1.1]'
           >
-            Get In Touch
+            联系我们
           </h2>
           <p className='mt-3 text-slate-600 text-[clamp(1rem,1.2vw,1.125rem)]'>
-            We usually reply within 24 hours.
+            我们通常会在24小时内回复您。
           </p>
         </Reveal>
 
@@ -248,7 +248,7 @@ const ContactSection: React.FC = () => {
           <aside className='md:col-span-5 xl:col-span-4 md:sticky md:top-24 space-y-6'>
             <Reveal>
               <span className='inline-block text-xs font-semibold text-slate-500 uppercase tracking-wider'>
-                Contact Us
+                联系方式
               </span>
             </Reveal>
 
@@ -260,12 +260,10 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h3 className='font-semibold text-slate-800 mb-1 text-[clamp(1rem,1.1vw,1.125rem)]'>
-                      Location
+                      地址
                     </h3>
                     <p className='text-slate-600 leading-relaxed'>
-                      Dalian, Liaoning
-                      <br />
-                      China
+                      中国辽宁省大连市
                     </p>
                   </div>
                 </div>
@@ -278,7 +276,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h3 className='font-semibold text-slate-800 mb-1 text-[clamp(1rem,1.1vw,1.125rem)]'>
-                      Phone
+                      电话
                     </h3>
                     <p className='text-slate-600'>(555) 123-4567</p>
                   </div>
@@ -292,7 +290,7 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h3 className='font-semibold text-slate-800 mb-1 text-[clamp(1rem,1.1vw,1.125rem)]'>
-                      Email
+                      邮箱
                     </h3>
                     <p className='text-slate-600 break-words'>{MAIL_TO}</p>
                   </div>
@@ -306,12 +304,12 @@ const ContactSection: React.FC = () => {
                   </div>
                   <div>
                     <h3 className='font-semibold text-slate-800 mb-1 text-[clamp(1rem,1.1vw,1.125rem)]'>
-                      Hours
+                      服务时间
                     </h3>
                     <p className='text-slate-600'>
-                      Front desk open 24/7
+                      前台24小时在线
                       <br />
-                      Check-in: 3PM | Check-out: 11AM
+                      登记：15:00 | 结束：11:00
                     </p>
                   </div>
                 </div>
@@ -323,7 +321,7 @@ const ContactSection: React.FC = () => {
           <Reveal delay={80} className='md:col-span-7 xl:col-span-8'>
             <div className='bg-white/80 backdrop-blur rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-[0_12px_32px_rgba(0,0,0,0.06)]'>
               <h3 className='text-slate-800 font-serif font-semibold mb-6 text-[clamp(1.25rem,1.8vw,1.5rem)]'>
-                Send us a Message
+                给我们留言
               </h3>
 
               {/* Status / Error banner */}
@@ -345,13 +343,13 @@ const ContactSection: React.FC = () => {
                 <div className='grid sm:grid-cols-2 gap-4'>
                   <div>
                     <label htmlFor='firstName' className='sr-only'>
-                      First Name
+                      名
                     </label>
                     <input
                       id='firstName'
                       type='text'
                       name='firstName'
-                      placeholder='First Name'
+                      placeholder='名'
                       autoComplete='given-name'
                       value={formData.firstName}
                       onChange={handleChange}
@@ -379,13 +377,13 @@ const ContactSection: React.FC = () => {
 
                   <div>
                     <label htmlFor='lastName' className='sr-only'>
-                      Last Name
+                      姓
                     </label>
                     <input
                       id='lastName'
                       type='text'
                       name='lastName'
-                      placeholder='Last Name'
+                      placeholder='姓'
                       autoComplete='family-name'
                       value={formData.lastName}
                       onChange={handleChange}
@@ -414,13 +412,13 @@ const ContactSection: React.FC = () => {
 
                 <div>
                   <label htmlFor='email' className='sr-only'>
-                    Email Address
+                    邮箱地址
                   </label>
                   <input
                     id='email'
                     type='email'
                     name='email'
-                    placeholder='Email Address'
+                    placeholder='邮箱地址'
                     autoComplete='email'
                     value={formData.email}
                     onChange={handleChange}
@@ -443,14 +441,14 @@ const ContactSection: React.FC = () => {
 
                 <div>
                   <label htmlFor='phone' className='sr-only'>
-                    Phone Number
+                    手机号
                   </label>
                   <input
                     id='phone'
                     type='tel'
                     inputMode='tel'
                     name='phone'
-                    placeholder='Phone Number'
+                    placeholder='手机号'
                     autoComplete='tel'
                     value={formData.phone}
                     onChange={handleChange}
@@ -473,12 +471,12 @@ const ContactSection: React.FC = () => {
 
                 <div>
                   <label htmlFor='message' className='sr-only'>
-                    Your Message
+                    您的留言
                   </label>
                   <textarea
                     id='message'
                     name='message'
-                    placeholder='Your Message'
+                    placeholder='您的留言'
                     rows={5}
                     maxLength={500}
                     value={formData.message}
@@ -533,10 +531,10 @@ const ContactSection: React.FC = () => {
                     </svg>
                   )}
                   {submitState === "sending"
-                    ? "Sending..."
+                    ? "正在发送..."
                     : submitState === "success"
-                    ? "Message sent!"
-                    : "Send Message"}
+                    ? "留言已发送！"
+                    : "发送留言"}
                 </button>
               </form>
             </div>

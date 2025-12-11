@@ -68,7 +68,7 @@ const TestimonialsSection: React.FC = () => {
         "https://images.unsplash.com/photo-1554151228-14d9def656e4?auto=format&fit=crop&w=256&q=80",
       rating: 5,
       review:
-        "My daughter has been attending the Tutor 11 Plus programme for a while now. She really enjoys the lessons which are tailored to the programme. Homework is set, and she works through it well.",
+        "女儿已经上了一段时间的课程了，非常喜欢这里为她量身设计的课堂内容。每次都有适量的作业巩固，她也能积极完成，进步非常明显。",
     },
     {
       name: "Bryan",
@@ -77,7 +77,7 @@ const TestimonialsSection: React.FC = () => {
         "https://images.unsplash.com/photo-1547425260-76bcadfb4f2c?auto=format&fit=crop&w=256&q=80",
       rating: 5,
       review:
-        "We’re extremely grateful to all the tutors for the help they gave Marla in the run-up to her entrance exam. She went in with greater confidence and felt the tuition helped a lot. She’s found the teaching style great.",
+        "非常感谢老师们在入学考试前对 Marla 的帮助。上课之后，她自信心明显提升，感觉老师的讲解和练习都很有针对性，对考试帮助很大，也很喜欢这里的教学风格。",
     },
     {
       name: "Laura",
@@ -86,7 +86,7 @@ const TestimonialsSection: React.FC = () => {
         "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=256&q=80",
       rating: 5,
       review:
-        "My thanks go out to the tutors for their support and patience—especially at this time. The technical help has been amazing. Although just three times a week, my child looks forward to her sessions.",
+        "非常感谢老师们一直以来耐心细致的陪伴与支持，尤其是在这个阶段。线上技术保障也很到位。虽然一周只有三次课，孩子却每次都很期待上线学习。",
     },
   ];
 
@@ -115,11 +115,10 @@ const TestimonialsSection: React.FC = () => {
                        text-[clamp(2rem,5vw,3rem)] leading-[1.06]
                        bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-indigo-800 to-indigo-600'
           >
-            You’re in Excellent Hands
+            把孩子放心交给我们
           </h2>
           <p className='mt-4 text-slate-600 text-[clamp(1rem,1.25vw,1.125rem)]'>
-            Loved by families for our patient, structured approach and real
-            progress.
+            家长们认可我们耐心、有条理的教学方式，以及看得见的学习进步。
           </p>
 
           {/* Overall rating badge */}
@@ -137,7 +136,7 @@ const TestimonialsSection: React.FC = () => {
               ))}
             </div>
             <span className='text-sm font-medium text-slate-700'>
-              <span className='sr-only'>Average rating:</span> 5/5
+              <span className='sr-only'>平均评分：</span> 5/5
             </span>
           </div>
         </Reveal>
@@ -162,7 +161,7 @@ const TestimonialsSection: React.FC = () => {
                   {/* Stars */}
                   <div
                     className='flex items-center mb-4'
-                    aria-label={`${t.rating} out of 5 stars`}
+                    aria-label={`${t.rating} 分（满分 5 分）`}
                   >
                     {Array.from({ length: t.rating }).map((_, i) => (
                       <svg
@@ -220,7 +219,7 @@ const TestimonialsSection: React.FC = () => {
                          hover:from-indigo-600/90 hover:to-fuchsia-600/90
                          focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition'
             >
-              Read more reviews
+              查看更多评价
             </a>
           </div>
         </Reveal>
