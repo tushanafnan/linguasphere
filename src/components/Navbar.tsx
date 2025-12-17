@@ -153,7 +153,7 @@ const Navbar: React.FC = () => {
             <img
               src='https://res.cloudinary.com/dk4p31whc/image/upload/v1760330547/logo_aisymv.png'
               alt='Linguasphere Logo'
-              className='h-9 w-auto md:h-10 object-contain'
+              className='h-14 md:h-16 w-auto object-contain'
               loading='eager'
               decoding='async'
               fetchPriority='high'

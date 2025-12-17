@@ -96,15 +96,15 @@ const Footer: React.FC = () => {
   const quickLinks = [
     { label: "品牌故事", href: "/about" },
     { label: "课程特色", href: "/features" },
-    { label: "辅导方案", href: "/plans" }, // ← standardized
+    { label: "辅导方案", href: "/plans" },
     { label: "家长评价", href: "/testimonials" },
     { label: "联系我们", href: "/contact" },
   ];
 
   const contactInfo = [
-    "中国辽宁省大连市",
-    "电话：+86 157 2453 8545",
-    "邮箱：tush@jordan.com",
+    { icon: "📍", text: "英国伦敦 | 中国大连", label: "服务地区" },
+    { icon: "☎️", text: "18342032648", label: "电话" },
+    { icon: "✉️", text: "hello@linguasphere.com", label: "邮箱" },
   ];
 
   const socialLinks = [
@@ -162,36 +162,38 @@ const Footer: React.FC = () => {
   return (
     <footer
       role='contentinfo'
-      className='relative overflow-hidden bg-slate-950 text-white border-t border-white/10'
+      className='relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white border-t border-indigo-500/20'
     >
-      {/* modern dotted grid + blobs (decorative) */}
-      <div className='absolute inset-0 -z-10 opacity-30' aria-hidden='true'>
-        <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#475569_1px,transparent_1px)] [background-size:18px_18px]' />
-        <div className='absolute -top-24 right-1/3 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl' />
-        <div className='absolute -bottom-24 left-1/4 h-72 w-72 rounded-full bg-fuchsia-500/15 blur-3xl' />
+      {/* Premium gradient background + blobs */}
+      <div className='absolute inset-0 -z-10 opacity-40' aria-hidden='true'>
+        <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#475569_1px,transparent_1px)] [background-size:20px_20px] opacity-50' />
+        <div className='absolute -top-40 right-1/4 h-96 w-96 rounded-full bg-indigo-600/20 blur-3xl' />
+        <div className='absolute -bottom-40 left-1/3 h-80 w-80 rounded-full bg-purple-600/15 blur-3xl' />
+        <div className='absolute top-1/2 right-1/3 h-72 w-72 rounded-full bg-indigo-500/10 blur-3xl' />
       </div>
 
       <div className='mx-auto max-w-7xl px-6 py-16 md:py-20'>
-        <div className='grid gap-10 md:grid-cols-4'>
+        <div className='grid gap-12 md:grid-cols-4 items-start'>
           {/* Brand */}
           <Reveal>
-            <div>
-              <h3 className='font-serif font-bold mb-4 text-[clamp(1.15rem,1.8vw,1.35rem)]'>
-                Linguasphere
-              </h3>
-              <p className='text-slate-300 text-[clamp(0.98rem,1vw,1.05rem)]'>
-                专注 4–16
-                岁少儿在线英语辅导。英籍母语外教，一对一与小班课程结合，让家长看得见孩子的进步。
-              </p>
-              <div className='mt-4 flex flex-wrap gap-2 text-xs'>
-                <span className='rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/10'>
-                  通过 DBS 背景审查
+            <div className='space-y-4'>
+              <div>
+                <h3 className='font-serif font-bold mb-2 text-[clamp(1.25rem,2vw,1.5rem)] bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent'>
+                  Linguasphere
+                </h3>
+                <p className='text-slate-200 text-[clamp(0.95rem,1vw,1.05rem)] leading-relaxed'>
+                  全球领先的少儿在线英语教育平台。英籍母语外教、个性化课程、看得见的进步。
+                </p>
+              </div>
+              <div className='flex flex-wrap gap-2 pt-2'>
+                <span className='inline-flex items-center px-3 py-1 text-xs rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-200 ring-1 ring-indigo-500/30 font-medium'>
+                  ✓ DBS认证
                 </span>
-                <span className='rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/10'>
-                  英籍母语外教
+                <span className='inline-flex items-center px-3 py-1 text-xs rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-200 ring-1 ring-indigo-500/30 font-medium'>
+                  ✓ 母语外教
                 </span>
-                <span className='rounded-full bg-white/10 px-3 py-1 ring-1 ring-white/10'>
-                  适合 4–16 岁
+                <span className='inline-flex items-center px-3 py-1 text-xs rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-200 ring-1 ring-indigo-500/30 font-medium'>
+                  ✓ 全球服务
                 </span>
               </div>
             </div>
@@ -200,16 +202,17 @@ const Footer: React.FC = () => {
           {/* Quick Links */}
           <Reveal delay={60}>
             <nav aria-label='Footer quick links'>
-              <h4 className='font-semibold mb-4 text-[clamp(1rem,1.2vw,1.125rem)]'>
+              <h4 className='font-semibold mb-5 text-[clamp(1.05rem,1.3vw,1.15rem)] text-white'>
                 快速导航
               </h4>
-              <ul className='space-y-2 text-slate-300'>
+              <ul className='space-y-3 text-slate-300'>
                 {quickLinks.map((link) => (
                   <li key={link.href}>
                     <Link
                       to={link.href}
-                      className='hover:text-white transition focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 rounded'
+                      className='inline-flex items-center gap-2 hover:text-indigo-300 transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 rounded group'
                     >
+                      <span className='inline-block w-1.5 h-1.5 rounded-full bg-indigo-400/0 group-hover:bg-indigo-400 transition' />
                       {link.label}
                     </Link>
                   </li>
@@ -221,12 +224,27 @@ const Footer: React.FC = () => {
           {/* Contact */}
           <Reveal delay={120}>
             <div>
-              <h4 className='font-semibold mb-4 text-[clamp(1rem,1.2vw,1.125rem)]'>
-                联系方式
+              <h4 className='font-semibold mb-5 text-[clamp(1.05rem,1.3vw,1.15rem)] text-white'>
+                联系我们
               </h4>
-              <ul className='space-y-2 text-slate-300'>
+              <ul className='space-y-3'>
                 {contactInfo.map((info, i) => (
-                  <li key={i}>{info}</li>
+                  <li
+                    key={i}
+                    className='text-slate-300 text-[clamp(0.9rem,1vw,0.95rem)]'
+                  >
+                    <div className='flex items-start gap-3 group'>
+                      <span className='text-lg flex-shrink-0'>{info.icon}</span>
+                      <div className='flex-1'>
+                        <p className='text-xs text-slate-500 mb-0.5 font-semibold'>
+                          {info.label}
+                        </p>
+                        <p className='text-slate-300 group-hover:text-indigo-300 transition'>
+                          {info.text}
+                        </p>
+                      </div>
+                    </div>
+                  </li>
                 ))}
               </ul>
             </div>
@@ -235,39 +253,41 @@ const Footer: React.FC = () => {
           {/* Newsletter */}
           <Reveal delay={180}>
             <div>
-              <h4 className='font-semibold mb-4 text-[clamp(1rem,1.2vw,1.125rem)]'>
-                获取最新课程资讯
+              <h4 className='font-semibold mb-2 text-[clamp(1.05rem,1.3vw,1.15rem)] text-white'>
+                订阅精彩资讯
               </h4>
-              <p className='text-slate-300 mb-4'>
-                获取学习小贴士、免费资源，以及新课程开放的优先通知。
+              <p className='text-slate-300 text-[clamp(0.9rem,1vw,0.95rem)] mb-5 leading-relaxed'>
+                获得独家教学技巧、免费学习资源和新课程开放通知。
               </p>
 
               {/* Status */}
               <div
                 role='status'
                 aria-live='polite'
-                className={`mb-2 text-sm ${
+                className={`mb-3 text-sm rounded-lg p-2 ${
                   status === "success"
-                    ? "text-green-400"
+                    ? "bg-green-500/10 text-green-300 border border-green-500/30"
                     : status === "error"
-                    ? "text-rose-400"
+                    ? "bg-rose-500/10 text-rose-300 border border-rose-500/30"
                     : "text-slate-300"
                 }`}
               >
-                {status === "success"
-                  ? "谢谢订阅！如果邮箱应用已打开，请在其中确认发送。"
-                  : ""}
+                {status === "success" ? "✓ 订阅成功！请检查邮箱确认。" : ""}
               </div>
 
-              <form onSubmit={handleSubscribe} className='flex' noValidate>
+              <form
+                onSubmit={handleSubscribe}
+                className='flex gap-1.5'
+                noValidate
+              >
                 <label htmlFor='newsletter-email' className='sr-only'>
                   邮箱地址
                 </label>
                 <input
                   id='newsletter-email'
                   type='email'
-                  placeholder='请输入邮箱地址'
-                  className='w-full px-4 py-3 bg-white text-slate-900 rounded-l-xl outline-none text-[clamp(0.95rem,1vw,1rem)]'
+                  placeholder='邮箱地址'
+                  className='flex-1 px-4 py-2.5 bg-white/10 backdrop-blur text-white placeholder-slate-400 rounded-lg outline-none border border-white/20 focus:border-indigo-400 focus:ring-1 focus:ring-indigo-400/50 transition text-[clamp(0.9rem,1vw,0.95rem)]'
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   disabled={status === "sending"}
@@ -279,17 +299,17 @@ const Footer: React.FC = () => {
                 />
                 <button
                   type='submit'
-                  className='bg-slate-800 hover:bg-slate-700 px-4 py-3 rounded-r-xl transition disabled:opacity-70 disabled:cursor-not-allowed text-[clamp(0.95rem,1vw,1rem)]'
+                  className='px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 rounded-lg font-semibold transition duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-[clamp(0.9rem,1vw,0.95rem)] shadow-lg hover:shadow-indigo-500/50'
                   disabled={status === "sending"}
                 >
-                  {status === "sending" ? "正在订阅..." : "订阅"}
+                  {status === "sending" ? "..." : "订阅"}
                 </button>
               </form>
 
               {status === "error" && (
                 <p
                   id='newsletter-error'
-                  className='text-rose-400 mt-2'
+                  className='text-rose-400 mt-2 text-sm'
                   role='alert'
                 >
                   {error}
@@ -300,13 +320,16 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Bottom bar */}
-        <Reveal delay={220} className='mt-10'>
-          <div className='border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4'>
-            <p className='text-slate-300'>
+        <Reveal delay={240} className='mt-12'>
+          <div className='border-t border-indigo-500/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6'>
+            <p className='text-slate-400 text-[clamp(0.85rem,1vw,0.95rem)]'>
               © {new Date().getFullYear()}{" "}
-              <span className='font-medium'>Linguasphere</span>。保留所有权利。
+              <span className='font-semibold text-indigo-300'>
+                Linguasphere
+              </span>{" "}
+              • 保留所有权利
             </p>
-            <div className='flex items-center gap-5 text-slate-300'>
+            <div className='flex items-center gap-4 text-slate-300'>
               {socialLinks.map(({ Icon, href, label }) => (
                 <a
                   key={label}
@@ -314,9 +337,9 @@ const Footer: React.FC = () => {
                   target='_blank'
                   rel='noopener noreferrer'
                   aria-label={label}
-                  className='inline-flex h-10 w-10 items-center justify-center rounded-full bg-white/5 ring-1 ring-white/10 hover:bg-white/10 transition'
+                  className='inline-flex h-10 w-10 items-center justify-center rounded-full bg-gradient-to-br from-indigo-500/20 to-purple-500/20 ring-1 ring-indigo-500/30 hover:from-indigo-500/40 hover:to-purple-500/40 hover:ring-indigo-400/50 transition duration-300 hover:scale-110'
                 >
-                  <Icon className='h-5 w-5' />
+                  <Icon className='h-5 w-5 text-indigo-300' />
                 </a>
               ))}
             </div>
