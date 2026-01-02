@@ -1,31 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { FiArrowRight } from "react-icons/fi";
+import { ROUTES } from "../constants/routes";
+import { useInView } from "../hooks/useInView";
 
 /* ----------------------
-   Tiny in-view hook + Reveal (no libs)
+   Reveal component
 -----------------------*/
-function useInView(options?: IntersectionObserverInit) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
-    const io = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setInView(true);
-        io.disconnect();
-      }
-    }, options ?? { rootMargin: "0px 0px -10% 0px", threshold: 0.15 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, [options]);
-
-  return [ref, inView] as const;
-}
 
 interface RevealProps {
   children: React.ReactNode;

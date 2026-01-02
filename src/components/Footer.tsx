@@ -5,6 +5,7 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa";
+import { CONTACT_INFO } from "../constants/contact";
 import { useInView } from "../hooks/useInView";
 
 interface RevealProps {
