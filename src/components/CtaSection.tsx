@@ -1,5 +1,5 @@
 import { FiArrowRight } from "react-icons/fi";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
 
 const CtaSection = () => {
   return (
@@ -13,7 +13,7 @@ const CtaSection = () => {
         </p>
         <div className='flex flex-col sm:flex-row gap-4 justify-center'>
           <Link
-            to={"/Plans"}
+            to='/subscription'
             className='bg-white text-slate-900 hover:bg-white/90 px-8 py-4 rounded-full font-medium flex items-center justify-center gap-2 transition cursor-pointer'
           >
             预约免费试听 <FiArrowRight />

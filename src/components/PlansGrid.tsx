@@ -67,7 +67,7 @@ const PlansGrid: React.FC<PlansGridProps> = ({ Plans, limit }) => {
             {/* CTA pinned to bottom for perfect alignment */}
             <div className='mt-auto pt-6'>
               <Link
-                to='/booking'
+                to='/contact'
                 className='inline-flex w-full items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500'
               >
                 立即预约

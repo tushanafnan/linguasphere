@@ -1,6 +1,6 @@
 import ContactSection from "../components/ContactSection";
 
-const SerenityGuesthouse = () => {
+const Contact = () => {
   return (
     <div className='font-sans text-gray-800 relative bg-gradient-to-b from-white via-slate-50/50 to-indigo-50/20 overflow-hidden'>
       {/* Premium decorative background elements */}
@@ -19,4 +19,4 @@ const SerenityGuesthouse = () => {
   );
 };
 
-export default SerenityGuesthouse;
+export default Contact;

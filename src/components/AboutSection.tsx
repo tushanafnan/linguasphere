@@ -191,7 +191,7 @@ const AboutSection: React.FC = () => {
               >
                 <div className='aspect-[4/3] w-full'>
                   <img
-                    src='/images/all_baby.avif'
+                    src='/images/all_baby.jpg'
                     alt='Online tutoring session between teacher and child'
                     className='h-full w-full object-cover'
                     loading='lazy'
@@ -299,7 +299,7 @@ const AboutSection: React.FC = () => {
               >
                 <div className='aspect-[3/2] w-full'>
                   <img
-                    src='/images/all_baby.avif'
+                    src='/images/all_baby.jpg'
                     alt='Online tutoring session between teacher and child'
                     className='h-full w-full object-cover'
                     loading='lazy'
