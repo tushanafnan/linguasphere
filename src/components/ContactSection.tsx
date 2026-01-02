@@ -1,64 +1,11 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import { FiClock, FiMapPin, FiPhone } from "react-icons/fi";
-
-/* ----------------------
-   Tiny in-view hook + Reveal (no libs)
------------------------*/
-function useInView(options?: IntersectionObserverInit) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
-    const io = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setInView(true);
-        io.disconnect();
-      }
-    }, options ?? { rootMargin: "0px 0px -10% 0px", threshold: 0.1 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, [options]);
-  return [ref, inView] as const;
-}
-
-interface RevealProps {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-}
-
-const Reveal: React.FC<RevealProps> = ({
-  delay = 0,
-  className = "",
-  children,
-}) => {
-  const [ref, inView] = useInView();
-  return (
-    <div
-      ref={ref}
-      className={`transform transition-all duration-700 ease-out 
-                  motion-reduce:transition-none motion-reduce:transform-none
-                  ${
-                    inView
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-3"
-                  }
-                  ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-};
+import { CONTACT_INFO } from "../constants/contact";
 
 /* ----------------------
    Constants
 -----------------------*/
-const MOBILE_NUMBER = "18342032648";
+const MOBILE_NUMBER = CONTACT_INFO.phone;
 
 /* ----------------------
    Component

@@ -1,37 +1,11 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import {
   FaFacebookF,
   FaInstagram,
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa";
-
-/* ----------------------
-   Tiny in-view hook + Reveal (no libs)
------------------------*/
-function useInView(options?: IntersectionObserverInit) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
-    const io = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setInView(true);
-        io.disconnect();
-      }
-    }, options ?? { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, [options]);
-
-  return [ref, inView] as const;
-}
+import { useInView } from "../hooks/useInView";
 
 interface RevealProps {
   children: React.ReactNode; // 👈 must add this line
@@ -80,7 +54,7 @@ const NEWSLETTER_ENDPOINT =
   (typeof import.meta !== "undefined" &&
     (import.meta as any)?.env?.VITE_NEWSLETTER_ENDPOINT) ||
   "";
-const MAIL_TO = "tush@jordan.com";
+const MAIL_TO = CONTACT_INFO.mailTo;
 
 /* ----------------------
    Footer
@@ -93,16 +67,32 @@ const Footer: React.FC = () => {
   const [error, setError] = useState<string>("");
 
   const contactInfo = [
-    { icon: "📍", text: "英国伦敦 | 中国大连", label: "服务地区" },
-    { icon: "☎️", text: "18342032648", label: "电话" },
-    { icon: "✉️", text: "hello@linguasphere.com", label: "邮箱" },
+    { icon: "📍", text: CONTACT_INFO.location, label: "服务地区" },
+    { icon: "☎️", text: CONTACT_INFO.phone, label: "电话" },
+    { icon: "✉️", text: CONTACT_INFO.email, label: "邮箱" },
   ];
 
   const socialLinks = [
-    { Icon: FaFacebookF, href: "https://facebook.com", label: "Facebook" },
-    { Icon: FaInstagram, href: "https://instagram.com", label: "Instagram" },
-    { Icon: FaTwitter, href: "https://twitter.com", label: "Twitter" },
-    { Icon: FaLinkedinIn, href: "https://linkedin.com", label: "LinkedIn" },
+    {
+      Icon: FaFacebookF,
+      href: CONTACT_INFO.socialLinks.facebook,
+      label: "Facebook",
+    },
+    {
+      Icon: FaInstagram,
+      href: CONTACT_INFO.socialLinks.instagram,
+      label: "Instagram",
+    },
+    {
+      Icon: FaTwitter,
+      href: CONTACT_INFO.socialLinks.twitter,
+      label: "Twitter",
+    },
+    {
+      Icon: FaLinkedinIn,
+      href: CONTACT_INFO.socialLinks.linkedin,
+      label: "LinkedIn",
+    },
   ];
 
   const handleSubscribe = async (e: React.FormEvent) => {
@@ -130,7 +120,10 @@ const Footer: React.FC = () => {
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email: val }),
         });
-        if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+        if (!res.ok) {
+          const errorData = await res.json().catch(() => ({}));
+          throw new Error(errorData.message || `Request failed: ${res.status}`);
+        }
         setStatus("success");
         setEmail("");
       } else {

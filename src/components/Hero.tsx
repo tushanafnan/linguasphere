@@ -28,7 +28,7 @@ function useInView(options?: IntersectionObserverInit) {
 }
 
 interface RevealProps {
-  children: React.ReactNode; // 👈 must add this line
+  children: React.ReactNode;
   delay?: number;
   className?: string;
 }
@@ -160,8 +160,8 @@ const Hero: React.FC = () => {
           <div className='mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center'>
             {/* Primary CTA (SPA-safe) */}
             <a
-              href='/plans'
-              onClick={(e) => spaNav(e, "/plans")}
+              href={ROUTES.SUBSCRIPTION}
+              onClick={(e) => spaNav(e, ROUTES.SUBSCRIPTION)}
               className='
                 inline-flex items-center justify-center gap-2
                 rounded-full px-7 sm:px-8 py-3
