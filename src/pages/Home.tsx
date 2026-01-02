@@ -3,7 +3,6 @@ import CtaSection from "../components/CtaSection";
 import ServiceSection from "../components/FeatureSection";
 import Hero from "../components/Hero";
 import PlansSection from "../components/PlansSection";
-import TestimonialsSection from "../components/TestimonialsSection";
 
 const Home = () => {
   return (
@@ -24,7 +23,7 @@ const Home = () => {
       <GallerySection  limit={8} showViewFullButton={true} /> */}
 
       {/* Testimonials */}
-      <TestimonialsSection />
+      {/* <TestimonialsSection /> */}
 
       {/* CTA Section */}
       <CtaSection />

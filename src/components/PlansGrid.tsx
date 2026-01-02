@@ -70,7 +70,7 @@ const PlansGrid: React.FC<PlansGridProps> = ({ Plans, limit }) => {
                 to='/booking'
                 className='inline-flex w-full items-center justify-center rounded-xl bg-indigo-600 px-5 py-3 font-semibold text-white transition hover:bg-indigo-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500'
               >
-                Book Now
+                立即预约
               </Link>
             </div>
           </div>

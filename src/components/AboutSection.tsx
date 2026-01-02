@@ -65,13 +65,11 @@ const AboutSection: React.FC = () => {
     { k: "18+", v: "年+教学经验" },
     { k: "4–16", v: "岁适用年龄段" },
     { k: "1:1", v: "定制一对一课程" },
-    { k: "DBS✓", v: "DBS认证师资" },
+    { k: "DBS✓", v: "背景审核认证师资" },
   ];
 
   const subjects = [
-    "Maths（数学）",
     "English（英语）",
-    "Science（科学）",
     "11+ Preparation（11+考试备考）",
     "GCSE Prep（GCSE备考）",
     "Homework Clinics（作业辅导）",
@@ -79,6 +77,11 @@ const AboutSection: React.FC = () => {
     "Reading Clubs（阅读俱乐部）",
     "Times Tables（乘法表）",
     "Pre-A-Level Skills（预备班技能）",
+    "IELTS Basics（雅思基础）",
+    "IELTS Junior（青少雅思）",
+    "TOEFL Junior（青少托福）",
+    "Cambridge English（剑桥英语）",
+    "Spoken English（英语口语）",
   ];
 
   const benefits = [
@@ -131,24 +134,26 @@ const AboutSection: React.FC = () => {
                 className='text-indigo-700 font-bold leading-tight
                            text-[clamp(1.25rem,2.2vw,1.5rem)]'
               >
-                用优质在线学习，给孩子成长“加buff”
+                用优质在线学习，助力孩子成长
               </h3>
             </Reveal>
 
             <Reveal delay={60}>
               <p className='text-slate-700 leading-relaxed text-[clamp(1rem,1.4vw,1.125rem)]'>
-                Linguasphere 有超过<strong>18年</strong>的教学经验，专注帮助
-                4–16
-                岁孩子，通过生动、有互动感的在线“面对面”课堂不断成长、发光发亮。我们的使命，是让教育变得“够得着、有章法、超有趣”——从启蒙阅读到
-                GCSE 备考，一路陪伴孩子前进。
+                Linguasphere 拥有超过 18
+                年的教学经验，配备背景审核认证师资，专注于为 4–16
+                岁孩子提供高质量的在线学习支持。
+                通过生动、有互动感的在线“面对面”课堂，我们帮助孩子在学习中不断进步、建立自信。我们的使命，是让优质教育
+                触手可及、有体系、富有趣味——从启蒙阅读到 GCSE, IELTS, TOEFL
+                备考，全程陪伴孩子稳步成长。
               </p>
             </Reveal>
 
             <Reveal delay={120}>
               <p className='text-slate-700 leading-relaxed text-[clamp(1rem,1.4vw,1.125rem)]'>
                 每一位导师都经过
-                <span className='font-semibold'>严格筛选与 DBS 安全认证</span>
-                ，根据孩子的水平与目标定制课程，帮助他们在轻松的氛围中建立自信，收获长期稳定的学习成效。
+                <span className='font-semibold'>严格筛选与背景审核认证</span>
+                ，根据孩子的学习水平与成长目标量身定制课程，帮助他们在轻松、有引导的学习氛围中建立自信，获得长期、稳定的学习成效。
               </p>
             </Reveal>
 
@@ -186,7 +191,7 @@ const AboutSection: React.FC = () => {
               >
                 <div className='aspect-[4/3] w-full'>
                   <img
-                    src='https://plus.unsplash.com/premium_photo-1663106423058-c5242333348c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1600'
+                    src='/public/images/all_baby.avif'
                     alt='Online tutoring session between teacher and child'
                     className='h-full w-full object-cover'
                     loading='lazy'

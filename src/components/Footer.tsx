@@ -6,7 +6,6 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 /* ----------------------
    Tiny in-view hook + Reveal (no libs)
@@ -93,14 +92,6 @@ const Footer: React.FC = () => {
   >("idle");
   const [error, setError] = useState<string>("");
 
-  const quickLinks = [
-    { label: "品牌故事", href: "/about" },
-    { label: "课程特色", href: "/features" },
-    { label: "辅导方案", href: "/plans" },
-    { label: "家长评价", href: "/testimonials" },
-    { label: "联系我们", href: "/contact" },
-  ];
-
   const contactInfo = [
     { icon: "📍", text: "英国伦敦 | 中国大连", label: "服务地区" },
     { icon: "☎️", text: "18342032648", label: "电话" },
@@ -173,7 +164,7 @@ const Footer: React.FC = () => {
       </div>
 
       <div className='mx-auto max-w-7xl px-6 py-16 md:py-20'>
-        <div className='grid gap-12 md:grid-cols-4 items-start'>
+        <div className='grid gap-12 md:grid-cols-3 items-start'>
           {/* Brand */}
           <Reveal>
             <div className='space-y-4'>
@@ -187,7 +178,7 @@ const Footer: React.FC = () => {
               </div>
               <div className='flex flex-wrap gap-2 pt-2'>
                 <span className='inline-flex items-center px-3 py-1 text-xs rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-200 ring-1 ring-indigo-500/30 font-medium'>
-                  ✓ DBS认证
+                  ✓ 背景审核认证师资
                 </span>
                 <span className='inline-flex items-center px-3 py-1 text-xs rounded-full bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-200 ring-1 ring-indigo-500/30 font-medium'>
                   ✓ 母语外教
@@ -197,28 +188,6 @@ const Footer: React.FC = () => {
                 </span>
               </div>
             </div>
-          </Reveal>
-
-          {/* Quick Links */}
-          <Reveal delay={60}>
-            <nav aria-label='Footer quick links'>
-              <h4 className='font-semibold mb-5 text-[clamp(1.05rem,1.3vw,1.15rem)] text-white'>
-                快速导航
-              </h4>
-              <ul className='space-y-3 text-slate-300'>
-                {quickLinks.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      to={link.href}
-                      className='inline-flex items-center gap-2 hover:text-indigo-300 transition duration-300 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 rounded group'
-                    >
-                      <span className='inline-block w-1.5 h-1.5 rounded-full bg-indigo-400/0 group-hover:bg-indigo-400 transition' />
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </nav>
           </Reveal>
 
           {/* Contact */}

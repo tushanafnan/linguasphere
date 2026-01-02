@@ -25,17 +25,15 @@ const PlansSection: React.FC<PlansSectionProps> = ({
         "专属英语辅导，配资深教师1对1带练。最低6小时起，可灵活选每周/每两周上课。每节课都有明确学习目标，课后还会给家长发简洁的进度小结~",
       // keep price for overlay only
       price: "¥330/小时 · 最低6小时起订",
-      image:
-        "https://t4.ftcdn.net/jpg/03/76/92/79/360_F_376927916_fEOIvubxQSXb9YbNgvvpkdkQsbUsMZ9r.jpg",
-      tags: ["定制1对1", "DBS认证教师", "灵活排课", "进度反馈"],
+      image: "/public/images/baby.jpg",
+      tags: ["定制1对1", "背景审核认证师资", "灵活排课", "进度反馈"],
     },
     {
       title: "小组在线辅导",
       description:
         "高性价比小班课，4-6人一班，同样是资深教师带队。课堂有协作任务、互动环节，每周还会给家长发学习快照，让孩子学习热情不掉线！",
       price: "¥180/小时 · 订6小时以上仅¥162/小时",
-      image:
-        "https://readwritethink.ca/wp-content/uploads/2021/01/online-tutoring.jpg",
+      image: "/public/images/baby2.jpg",
       tags: ["4–6人小班", "同伴互动", "资深讲师", "每周学习快照"],
     },
   ];

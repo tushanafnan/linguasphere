@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { FiArrowRight, FiPlay } from "react-icons/fi";
+import { FiArrowRight } from "react-icons/fi";
 
 /* ----------------------
    Tiny in-view hook + Reveal (no libs)
@@ -179,9 +179,8 @@ const Hero: React.FC = () => {
 
             {/* Secondary CTA */}
             <a
-              href='https://youtu.be/GG7To2NP1I4'
-              target='_blank'
-              rel='noopener noreferrer'
+              href='/contact'
+              onClick={(e) => spaNav(e, "/contact")}
               className='
                 inline-flex items-center justify-center gap-2
                 rounded-full px-7 sm:px-8 py-3
@@ -195,7 +194,7 @@ const Hero: React.FC = () => {
                 text-[clamp(1rem,1.2vw,1.0625rem)]
               '
             >
-              <FiPlay /> 观看课程视频
+              预约免费试听
             </a>
           </div>
         </Reveal>
