@@ -299,7 +299,7 @@ const AboutSection: React.FC = () => {
               >
                 <div className='aspect-[3/2] w-full'>
                   <img
-                    src='https://plus.unsplash.com/premium_photo-1663106423058-c5242333348c?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1600'
+                    src='/images/all_baby.avif'
                     alt='Online tutoring session between teacher and child'
                     className='h-full w-full object-cover'
                     loading='lazy'
