@@ -98,6 +98,12 @@ const Navbar: React.FC = () => {
 
   /* ---------- Navigation helper (anchors with offset) ---------- */
   const navigate = (path: string) => {
+    // Redirect to login subdomain
+    if (path === "/login") {
+      window.location.href = "https://dashboard.linguasphere.cn";
+      return;
+    }
+
     window.history.pushState({}, "", path);
     window.dispatchEvent(new PopStateEvent("popstate"));
     setIsOpen(false);
