@@ -6,37 +6,7 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { CONTACT_INFO } from "../constants/contact";
-import { useInView } from "../hooks/useInView";
-
-interface RevealProps {
-  children: React.ReactNode; // 👈 must add this line
-  delay?: number;
-  className?: string;
-}
-
-const Reveal: React.FC<RevealProps> = ({
-  delay = 0,
-  className = "",
-  children,
-}) => {
-  const [ref, inView] = useInView();
-  return (
-    <div
-      ref={ref}
-      className={`transform transition-all duration-700 ease-out 
-                  motion-reduce:transition-none motion-reduce:transform-none
-                  ${
-                    inView
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-3"
-                  }
-                  ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-};
+import { Reveal } from "./Reveal";
 
 /* ----------------------
    Helpers & constants
@@ -132,7 +102,7 @@ const Footer: React.FC = () => {
         const subject = "订阅电子邮件通讯";
         const body = `您好，\n\n请帮我订阅你们的电子邮件通讯：\n邮箱：${val}\n\n谢谢！`;
         window.location.href = `mailto:${MAIL_TO}?subject=${encodeURIComponent(
-          subject
+          subject,
         )}&body=${encodeURIComponent(body)}`;
         setStatus("success");
         setEmail("");
@@ -231,8 +201,8 @@ const Footer: React.FC = () => {
                   status === "success"
                     ? "bg-green-500/10 text-green-300 border border-green-500/30"
                     : status === "error"
-                    ? "bg-rose-500/10 text-rose-300 border border-rose-500/30"
-                    : "text-slate-300"
+                      ? "bg-rose-500/10 text-rose-300 border border-rose-500/30"
+                      : "text-slate-300"
                 }`}
               >
                 {status === "success" ? "✓ 订阅成功！请检查邮箱确认。" : ""}

@@ -1,36 +1,5 @@
-import React from "react";
 import { FiClock, FiMail, FiMapPin, FiPhone } from "react-icons/fi";
-import { useInView } from "../hooks/useInView";
-
-interface RevealProps {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-}
-
-const Reveal: React.FC<RevealProps> = ({
-  delay = 0,
-  className = "",
-  children,
-}) => {
-  const [ref, inView] = useInView();
-  return (
-    <div
-      ref={ref}
-      className={`transform transition-all duration-700 ease-out 
-                  motion-reduce:transition-none motion-reduce:transform-none
-                  ${
-                    inView
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-3"
-                  }
-                  ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-};
+import { Reveal } from "./Reveal";
 
 /* ------------------------------------
    Data
@@ -256,7 +225,9 @@ export default function Feature() {
         <Reveal delay={220}>
           <div className='text-center mt-12 md:mt-16'>
             <a
-              href='#book-trial'
+              href='https://dashboard.linguasphere.cn/'
+              target='_blank'
+              rel='noopener noreferrer'
               className='inline-flex items-center justify-center rounded-full 
                          bg-gradient-to-r from-indigo-600 to-fuchsia-600 
                          px-7 sm:px-8 py-3 text-white font-semibold shadow

@@ -1,37 +1,7 @@
 import React from "react";
 import { FiClock, FiMapPin, FiPhone } from "react-icons/fi";
 import { CONTACT_INFO } from "../constants/contact";
-import { useInView } from "../hooks/useInView";
-
-interface RevealProps {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-}
-
-const Reveal: React.FC<RevealProps> = ({
-  delay = 0,
-  className = "",
-  children,
-}) => {
-  const [ref, inView] = useInView();
-  return (
-    <div
-      ref={ref}
-      className={`transform transition-all duration-700 ease-out 
-                  motion-reduce:transition-none motion-reduce:transform-none
-                  ${
-                    inView
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-3"
-                  }
-                  ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-};
+import { Reveal } from "./Reveal";
 
 /* ----------------------
    Constants

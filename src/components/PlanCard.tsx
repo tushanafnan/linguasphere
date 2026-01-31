@@ -1,5 +1,4 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 interface Plan {
   title: string;
@@ -14,16 +13,8 @@ interface PlanCardProps {
 }
 
 const PlanCard: React.FC<PlanCardProps> = ({ Plan }) => {
-  const navigate = useNavigate();
-
   const handleBookNow = () => {
-    const params = new URLSearchParams({
-      title: Plan.title,
-      price: Plan.price,
-      image: Plan.image,
-      description: Plan.description, // yahan add kar diya
-    });
-    navigate(`/reservation?${params.toString()}`);
+    window.open("https://dashboard.linguasphere.cn/", "_blank");
   };
 
   return (

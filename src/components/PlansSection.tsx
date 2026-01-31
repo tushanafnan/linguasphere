@@ -70,12 +70,7 @@ const PlansSection: React.FC<PlansSectionProps> = ({
 
         {showViewAll && (
           <div className='text-center mt-12'>
-            {/* <Link
-              to={"/Plans"}
-              className='border-2 border-slate-900 text-slate-900 hover:bg-slate-900 hover:text-white px-8 py-3 rounded-full font-medium transition'
-            >
-              View All Packages
-            </Link> */}
+            {/* View All disabled - no separate Plans page route */}
           </div>
         )}
       </div>

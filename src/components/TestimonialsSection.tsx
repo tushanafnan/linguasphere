@@ -1,60 +1,5 @@
-import React, { useEffect, useRef, useState } from "react";
-
-/* ----------------------
-   Tiny in-view hook + Reveal (no libs)
------------------------*/
-function useInView(options?: IntersectionObserverInit) {
-  const ref = useRef<HTMLDivElement | null>(null);
-  const [inView, setInView] = useState(false);
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el || typeof IntersectionObserver === "undefined") {
-      setInView(true);
-      return;
-    }
-    const io = new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) {
-        setInView(true);
-        io.disconnect();
-      }
-    }, options ?? { rootMargin: "0px 0px -10% 0px", threshold: 0.1 });
-    io.observe(el);
-    return () => io.disconnect();
-  }, [options]);
-
-  return [ref, inView] as const;
-}
-
-interface RevealProps {
-  children: React.ReactNode; // 👈 must add this line
-  delay?: number;
-  className?: string;
-}
-
-const Reveal: React.FC<RevealProps> = ({
-  delay = 0,
-  className = "",
-  children,
-}) => {
-  const [ref, inView] = useInView();
-  return (
-    <div
-      ref={ref}
-      className={`transform transition-all duration-700 ease-out 
-                  motion-reduce:transition-none motion-reduce:transform-none
-                  ${
-                    inView
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-3"
-                  }
-                  ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-};
+import React from "react";
+import { Reveal } from "./Reveal";
 
 /* ----------------------
    Component
@@ -212,14 +157,16 @@ const TestimonialsSection: React.FC = () => {
         <Reveal delay={260}>
           <div className='text-center mt-12'>
             <a
-              href='/testimonials'
+              href='https://dashboard.linguasphere.cn/'
+              target='_blank'
+              rel='noopener noreferrer'
               className='inline-flex items-center justify-center rounded-full
                          bg-gradient-to-r from-indigo-600 to-fuchsia-600
                          px-7 sm:px-8 py-3 text-white font-semibold shadow
                          hover:from-indigo-600/90 hover:to-fuchsia-600/90
                          focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition'
             >
-              查看更多评价
+              查看更多评价并预约
             </a>
           </div>
         </Reveal>

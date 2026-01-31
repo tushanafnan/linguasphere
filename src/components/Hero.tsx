@@ -1,57 +1,11 @@
 import React from "react";
 import { FiArrowRight } from "react-icons/fi";
-import { ROUTES } from "../constants/routes";
-import { useInView } from "../hooks/useInView";
-
-/* ----------------------
-   Reveal component
------------------------*/
-
-interface RevealProps {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-}
-
-const Reveal: React.FC<RevealProps> = ({
-  delay = 0,
-  className = "",
-  children,
-}) => {
-  const [ref, inView] = useInView();
-  return (
-    <div
-      ref={ref}
-      className={`transform transition-all duration-700 ease-out 
-                  motion-reduce:transition-none motion-reduce:transform-none
-                  ${
-                    inView
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-3"
-                  }
-                  ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-};
+import { Reveal } from "./Reveal";
 
 /* ----------------------
    Hero
 -----------------------*/
 const Hero: React.FC = () => {
-  // Optional SPA nav helper (works even if you don't use react-router)
-  const spaNav = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
-    // Let meta/ctrl/shift clicks open new tabs normally
-    if (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button !== 0)
-      return;
-    e.preventDefault();
-    window.history.pushState({}, "", path);
-    window.dispatchEvent(new PopStateEvent("popstate"));
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
-
   return (
     <section
       id='hero'
@@ -138,10 +92,11 @@ const Hero: React.FC = () => {
 
         <Reveal delay={190}>
           <div className='mt-8 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center'>
-            {/* Primary CTA (SPA-safe) */}
+            {/* Primary CTA */}
             <a
-              href={ROUTES.SUBSCRIPTION}
-              onClick={(e) => spaNav(e, ROUTES.SUBSCRIPTION)}
+              href='https://dashboard.linguasphere.cn/'
+              target='_blank'
+              rel='noopener noreferrer'
               className='
                 inline-flex items-center justify-center gap-2
                 rounded-full px-7 sm:px-8 py-3
@@ -159,8 +114,9 @@ const Hero: React.FC = () => {
 
             {/* Secondary CTA */}
             <a
-              href='/contact'
-              onClick={(e) => spaNav(e, "/contact")}
+              href='https://dashboard.linguasphere.cn/'
+              target='_blank'
+              rel='noopener noreferrer'
               className='
                 inline-flex items-center justify-center gap-2
                 rounded-full px-7 sm:px-8 py-3

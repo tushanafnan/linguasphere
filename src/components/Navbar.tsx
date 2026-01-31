@@ -80,7 +80,7 @@ const Navbar: React.FC = () => {
       document.documentElement.style.setProperty("--nav-height", `${h}px`);
       document.documentElement.style.setProperty(
         "scroll-padding-top",
-        `calc(${h}px + 8px)`
+        `calc(${h}px + 8px)`,
       );
     };
     setVars();
@@ -117,7 +117,7 @@ const Navbar: React.FC = () => {
             getComputedStyle(document.documentElement)
               .getPropertyValue("--nav-height")
               .trim()
-              .replace("px", "")
+              .replace("px", ""),
           ) || 64;
         const y =
           el.getBoundingClientRect().top + window.pageYOffset - (cssH + 8);
@@ -135,8 +135,8 @@ const Navbar: React.FC = () => {
   const glass = isOpen
     ? "bg-white/90 backdrop-blur-md shadow-md"
     : scrolled
-    ? "bg-white/80 backdrop-blur-md shadow-sm"
-    : "bg-white/45 backdrop-blur-sm";
+      ? "bg-white/80 backdrop-blur-md shadow-sm"
+      : "bg-white/45 backdrop-blur-sm";
 
   return (
     <nav
@@ -204,8 +204,10 @@ const Navbar: React.FC = () => {
 
           {/* Desktop CTA */}
           <div className='hidden md:block'>
-            <button
-              onClick={() => navigate("/plans")}
+            <a
+              href='https://dashboard.linguasphere.cn/'
+              target='_blank'
+              rel='noopener noreferrer'
               className='inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5
                          font-semibold text-white text-[clamp(0.95rem,1vw,1rem)]
                          bg-gradient-to-r from-indigo-600 to-fuchsia-600
@@ -213,7 +215,7 @@ const Navbar: React.FC = () => {
                          focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition'
             >
               立即预约
-            </button>
+            </a>
           </div>
 
           {/* Mobile toggle */}
@@ -283,8 +285,10 @@ const Navbar: React.FC = () => {
                   );
                 })}
                 <li className='pt-4 pb-2'>
-                  <button
-                    onClick={() => navigate("/plans")}
+                  <a
+                    href='https://dashboard.linguasphere.cn/'
+                    target='_blank'
+                    rel='noopener noreferrer'
                     className='w-full inline-flex items-center justify-center rounded-xl px-5 py-3
                                font-semibold text-white text-[clamp(1rem,3.6vw,1.0625rem)]
                                bg-gradient-to-r from-indigo-600 to-fuchsia-600
@@ -292,7 +296,7 @@ const Navbar: React.FC = () => {
                                focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition'
                   >
                     立即预约
-                  </button>
+                  </a>
                 </li>
               </ul>
             </div>

@@ -1,36 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import { useInView } from "../hooks/useInView";
-
-interface RevealProps {
-  children: React.ReactNode;
-  delay?: number;
-  className?: string;
-}
-
-const Reveal: React.FC<RevealProps> = ({
-  delay = 0,
-  className = "",
-  children,
-}) => {
-  const [ref, inView] = useInView();
-  return (
-    <div
-      ref={ref}
-      className={`transform transition-all duration-700 ease-out 
-                  motion-reduce:transition-none motion-reduce:transform-none
-                  ${
-                    inView
-                      ? "opacity-100 translate-y-0"
-                      : "opacity-0 translate-y-3"
-                  }
-                  ${className}`}
-      style={{ transitionDelay: `${delay}ms` }}
-    >
-      {children}
-    </div>
-  );
-};
+import { Reveal } from "./Reveal";
 
 /* ----------------------
    About Section
@@ -239,19 +208,23 @@ const AboutSection: React.FC = () => {
             <Reveal delay={220}>
               <div className='pt-8 flex flex-wrap gap-4'>
                 <a
-                  href='#book-trial'
+                  href='https://dashboard.linguasphere.cn/'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='bg-indigo-600 hover:bg-indigo-700 text-white px-6 py-3 rounded-xl font-semibold shadow transition
                              focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500'
                 >
                   预约免费试听
                 </a>
-                <Link
-                  to='/contact'
+                <a
+                  href='https://dashboard.linguasphere.cn/'
+                  target='_blank'
+                  rel='noopener noreferrer'
                   className='border border-slate-300 px-6 py-3 rounded-xl font-semibold text-slate-800 hover:bg-slate-50 transition
                              focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500'
                 >
                   联系我们
-                </Link>
+                </a>
               </div>
             </Reveal>
 
