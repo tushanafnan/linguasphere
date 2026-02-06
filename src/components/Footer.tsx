@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import {
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaTwitter,
+    FaFacebookF,
+    FaInstagram,
+    FaLinkedinIn,
+    FaTwitter,
 } from "react-icons/fa";
 import { CONTACT_INFO } from "../constants/contact";
 import { Reveal } from "./Reveal";
@@ -117,14 +117,14 @@ const Footer: React.FC = () => {
   return (
     <footer
       role='contentinfo'
-      className='relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white border-t border-indigo-500/20'
+      className='relative overflow-hidden bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 text-white border-t border-violet-500/20'
     >
       {/* Premium gradient background + blobs */}
       <div className='absolute inset-0 -z-10 opacity-40' aria-hidden='true'>
         <div className='absolute inset-0 bg-[radial-gradient(circle_at_1px_1px,#475569_1px,transparent_1px)] [background-size:20px_20px] opacity-50' />
-        <div className='absolute -top-40 right-1/4 h-96 w-96 rounded-full bg-indigo-600/20 blur-3xl' />
+        <div className='absolute -top-40 right-1/4 h-96 w-96 rounded-full bg-violet-600/20 blur-3xl' />
         <div className='absolute -bottom-40 left-1/3 h-80 w-80 rounded-full bg-purple-600/15 blur-3xl' />
-        <div className='absolute top-1/2 right-1/3 h-72 w-72 rounded-full bg-indigo-500/10 blur-3xl' />
+        <div className='absolute top-1/2 right-1/3 h-72 w-72 rounded-full bg-violet-500/10 blur-3xl' />
       </div>
 
       <div className='mx-auto max-w-7xl px-6 py-16 md:py-20'>
@@ -133,7 +133,7 @@ const Footer: React.FC = () => {
           <Reveal>
             <div className='space-y-4'>
               <div>
-                <h3 className='font-serif font-bold mb-2 text-[clamp(1.25rem,2vw,1.5rem)] bg-gradient-to-r from-indigo-300 to-purple-300 bg-clip-text text-transparent'>
+                <h3 className='font-serif font-bold mb-2 text-[clamp(1.25rem,2vw,1.5rem)] bg-gradient-to-r from-violet-300 to-amber-300 bg-clip-text text-transparent'>
                   Linguasphere
                 </h3>
                 <p className='text-slate-200 text-[clamp(0.95rem,1vw,1.05rem)] leading-relaxed'>
@@ -254,10 +254,10 @@ const Footer: React.FC = () => {
 
         {/* Bottom bar */}
         <Reveal delay={240} className='mt-12'>
-          <div className='border-t border-indigo-500/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6'>
+          <div className='border-t border-violet-500/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-6'>
             <p className='text-slate-400 text-[clamp(0.85rem,1vw,0.95rem)]'>
               © {new Date().getFullYear()}{" "}
-              <span className='font-semibold text-indigo-300'>
+              <span className='font-semibold text-violet-300'>
                 Linguasphere
               </span>{" "}
               • 保留所有权利

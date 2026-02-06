@@ -126,20 +126,20 @@ const Navbar: React.FC = () => {
 
   // Reactive glass background
   const glass = isOpen
-    ? "bg-white/90 backdrop-blur-md shadow-md"
+    ? "bg-white/92 backdrop-blur-xl shadow-lg"
     : scrolled
-      ? "bg-white/80 backdrop-blur-md shadow-sm"
-      : "bg-white/45 backdrop-blur-sm";
+      ? "bg-white/85 backdrop-blur-xl shadow-[0_4px_24px_rgba(0,0,0,0.06)]"
+      : "bg-white/40 backdrop-blur-md";
 
   return (
     <nav
       ref={navRef}
       role='navigation'
       aria-label='Main'
-      className={`fixed inset-x-0 top-0 z-50 border-b border-white/20 ${glass}`}
+      className={`fixed inset-x-0 top-0 z-50 border-b transition-all duration-500 ${glass} ${scrolled ? "border-slate-200/60" : "border-white/20"}`}
     >
-      {/* Decorative gradient underline */}
-      <div className='pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-indigo-300/60 to-transparent' />
+      {/* Animated gradient underline */}
+      <div className='pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-violet-400/60 to-transparent animate-shimmer [background-size:200%_100%]' />
 
       <div className='mx-auto max-w-screen-xl px-4 sm:px-6'>
         <div className='flex h-[64px] md:h-[72px] items-center justify-between'>
@@ -201,13 +201,15 @@ const Navbar: React.FC = () => {
               href='https://dashboard.linguasphere.cn/'
               target='_blank'
               rel='noopener noreferrer'
-              className='inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5
-                         font-semibold text-white text-[clamp(0.95rem,1vw,1rem)]
-                         bg-gradient-to-r from-indigo-600 to-fuchsia-600
-                         shadow-sm hover:from-indigo-600/90 hover:to-fuchsia-600/90
-                         focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition'
+              className='btn-glow inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5
+                         font-bold text-white text-[clamp(0.95rem,1vw,1rem)]
+                         bg-gradient-to-r from-violet-600 to-purple-600
+                         shadow-[0_4px_16px_rgba(139,92,246,0.3)]
+                         hover:shadow-[0_8px_24px_rgba(139,92,246,0.4)]
+                         hover:from-violet-500 hover:to-purple-500
+                         focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 transition-all duration-300'
             >
-              立即预约
+              🎓 立即预约
             </a>
           </div>
 
@@ -284,11 +286,11 @@ const Navbar: React.FC = () => {
                     rel='noopener noreferrer'
                     className='w-full inline-flex items-center justify-center rounded-xl px-5 py-3
                                font-semibold text-white text-[clamp(1rem,3.6vw,1.0625rem)]
-                               bg-gradient-to-r from-indigo-600 to-fuchsia-600
-                               shadow-sm hover:from-indigo-600/90 hover:to-fuchsia-600/90
-                               focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition'
+                               bg-gradient-to-r from-violet-600 to-purple-600
+                               shadow-sm hover:from-violet-500 hover:to-purple-500
+                               focus:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 transition'
                   >
-                    立即预约
+                    🎓 立即预约
                   </a>
                 </li>
               </ul>

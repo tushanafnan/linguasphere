@@ -40,34 +40,45 @@ const TestimonialsSection: React.FC = () => {
       id='testimonials'
       role='region'
       aria-labelledby='testimonials-heading'
-      className='relative py-20 md:py-28 px-6 bg-white overflow-hidden'
+      className='relative py-28 md:py-36 px-6 bg-gradient-to-br from-slate-950 via-indigo-950 to-slate-900 overflow-hidden'
     >
       {/* modern accents (decorative) */}
       <div
         className='pointer-events-none absolute inset-0 -z-10 opacity-35'
         aria-hidden='true'
       >
-        <div className='absolute -top-24 right-1/3 h-64 w-64 rounded-full bg-indigo-300/25 blur-3xl' />
-        <div className='absolute -bottom-24 left-1/4 h-72 w-72 rounded-full bg-fuchsia-300/20 blur-3xl' />
+        <div className='absolute -top-24 right-1/3 h-64 w-64 rounded-full bg-indigo-500/20 blur-3xl' />
+        <div className='absolute -bottom-24 left-1/4 h-72 w-72 rounded-full bg-fuchsia-500/15 blur-3xl' />
+        <div
+          className='absolute inset-0 opacity-20'
+          style={{
+            backgroundImage:
+              "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+          }}
+        />
       </div>
 
       <div className='max-w-7xl mx-auto'>
         {/* Heading */}
-        <Reveal className='text-center max-w-3xl mx-auto mb-12 md:mb-14'>
+        <Reveal
+          variant='scale'
+          className='text-center max-w-3xl mx-auto mb-12 md:mb-14'
+        >
           <h2
             id='testimonials-heading'
             className='font-serif font-bold tracking-tight 
                        text-[clamp(2rem,5vw,3rem)] leading-[1.06]
-                       bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-indigo-800 to-indigo-600'
+                       bg-clip-text text-transparent bg-gradient-to-r from-white via-indigo-200 to-purple-200'
           >
             把孩子放心交给我们
           </h2>
-          <p className='mt-4 text-slate-600 text-[clamp(1rem,1.25vw,1.125rem)]'>
+          <p className='mt-4 text-slate-300 text-[clamp(1rem,1.25vw,1.125rem)]'>
             家长们认可我们耐心、有条理的教学方式，以及看得见的学习进步。
           </p>
 
           {/* Overall rating badge */}
-          <div className='mt-5 inline-flex items-center gap-2 rounded-full bg-slate-100 px-4 py-2 ring-1 ring-slate-200'>
+          <div className='mt-5 inline-flex items-center gap-2 rounded-full bg-white/10 px-4 py-2 ring-1 ring-white/20'>
             <div className='flex items-center' aria-hidden='true'>
               {Array.from({ length: 5 }).map((_, i) => (
                 <svg
@@ -80,7 +91,7 @@ const TestimonialsSection: React.FC = () => {
                 </svg>
               ))}
             </div>
-            <span className='text-sm font-medium text-slate-700'>
+            <span className='text-sm font-medium text-white/80'>
               <span className='sr-only'>平均评分：</span> 5/5
             </span>
           </div>
@@ -88,69 +99,80 @@ const TestimonialsSection: React.FC = () => {
 
         {/* Grid */}
         <div className='grid gap-6 sm:gap-8 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto items-stretch'>
-          {testimonials.map((t, index) => (
-            <Reveal key={index} delay={index * 80}>
-              <article
-                className='group relative h-full rounded-3xl p-[1px]
+          {testimonials.map((t, index) => {
+            const variants: Array<"fade-left" | "fade-up" | "fade-right"> = [
+              "fade-left",
+              "fade-up",
+              "fade-right",
+            ];
+            return (
+              <Reveal
+                key={index}
+                delay={index * 80}
+                variant={variants[index % 3]}
+              >
+                <article
+                  className='group relative h-full rounded-3xl p-[1px]
                            bg-gradient-to-br from-indigo-500/20 via-indigo-300/10 to-fuchsia-500/20
                            hover:from-indigo-500/30 hover:to-fuchsia-500/30 transition'
-              >
-                <div
-                  className='flex h-full flex-col rounded-[1.45rem] border border-slate-200/80
+                >
+                  <div
+                    className='flex h-full flex-col rounded-[1.45rem] border border-slate-200/80
                              bg-white/90 backdrop-blur p-7 sm:p-8
                              shadow-[0_8px_24px_rgba(0,0,0,0.06)]
                              transition-transform duration-500
                              group-hover:-translate-y-1 group-hover:shadow-[0_18px_36px_rgba(0,0,0,0.10)]
                              motion-reduce:transform-none'
-                >
-                  {/* Stars */}
-                  <div
-                    className='flex items-center mb-4'
-                    aria-label={`${t.rating} 分（满分 5 分）`}
                   >
-                    {Array.from({ length: t.rating }).map((_, i) => (
-                      <svg
-                        key={i}
-                        className='w-5 h-5 text-yellow-400'
-                        fill='currentColor'
-                        viewBox='0 0 20 20'
-                      >
-                        <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
-                      </svg>
-                    ))}
-                  </div>
+                    {/* Stars */}
+                    <div
+                      className='flex items-center mb-4'
+                      aria-label={`${t.rating} 分（满分 5 分）`}
+                    >
+                      {Array.from({ length: t.rating }).map((_, i) => (
+                        <svg
+                          key={i}
+                          className='w-5 h-5 text-yellow-400'
+                          fill='currentColor'
+                          viewBox='0 0 20 20'
+                        >
+                          <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
+                        </svg>
+                      ))}
+                    </div>
 
-                  {/* Review */}
-                  <blockquote className='mb-6'>
-                    <p className='text-slate-700 leading-relaxed italic text-[clamp(1rem,1.1vw,1.0625rem)]'>
-                      “{t.review}”
-                    </p>
-                  </blockquote>
+                    {/* Review */}
+                    <blockquote className='mb-6'>
+                      <p className='text-slate-700 leading-relaxed italic text-[clamp(1rem,1.1vw,1.0625rem)]'>
+                        “{t.review}”
+                      </p>
+                    </blockquote>
 
-                  {/* Person */}
-                  <div className='mt-auto flex items-center'>
-                    <img
-                      src={t.image}
-                      alt={t.name}
-                      className='w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white/80'
-                      loading='lazy'
-                      decoding='async'
-                    />
-                    <div>
-                      <div className='font-semibold text-slate-900'>
-                        {t.name}
-                      </div>
-                      {t.location ? (
-                        <div className='text-sm text-slate-500'>
-                          {t.location}
+                    {/* Person */}
+                    <div className='mt-auto flex items-center'>
+                      <img
+                        src={t.image}
+                        alt={t.name}
+                        className='w-12 h-12 rounded-full object-cover mr-4 ring-2 ring-white/80'
+                        loading='lazy'
+                        decoding='async'
+                      />
+                      <div>
+                        <div className='font-semibold text-slate-900'>
+                          {t.name}
                         </div>
-                      ) : null}
+                        {t.location ? (
+                          <div className='text-sm text-slate-500'>
+                            {t.location}
+                          </div>
+                        ) : null}
+                      </div>
                     </div>
                   </div>
-                </div>
-              </article>
-            </Reveal>
-          ))}
+                </article>
+              </Reveal>
+            );
+          })}
         </div>
 
         {/* Optional CTA */}
@@ -160,11 +182,13 @@ const TestimonialsSection: React.FC = () => {
               href='https://dashboard.linguasphere.cn/'
               target='_blank'
               rel='noopener noreferrer'
-              className='inline-flex items-center justify-center rounded-full
-                         bg-gradient-to-r from-indigo-600 to-fuchsia-600
-                         px-7 sm:px-8 py-3 text-white font-semibold shadow
-                         hover:from-indigo-600/90 hover:to-fuchsia-600/90
-                         focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition'
+              className='btn-glow inline-flex items-center justify-center rounded-full
+                         bg-gradient-to-r from-indigo-600 to-purple-600
+                         px-7 sm:px-8 py-3 text-white font-semibold
+                         shadow-[0_4px_16px_rgba(99,102,241,0.3)]
+                         hover:shadow-[0_8px_24px_rgba(99,102,241,0.4)]
+                         hover:from-indigo-500 hover:to-purple-500
+                         focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 transition-all duration-300'
             >
               查看更多评价并预约
             </a>

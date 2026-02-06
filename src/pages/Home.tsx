@@ -19,17 +19,8 @@ const Home = () => {
       {/* Feature Section */}
       <ServiceSection />
 
-      {/* Gallery Section
-      <GallerySection  limit={8} showViewFullButton={true} /> */}
-
-      {/* Testimonials */}
-      {/* <TestimonialsSection /> */}
-
       {/* CTA Section */}
       <CtaSection />
-
-      {/* Contact Section
-      <ContactSection /> */}
     </div>
   );
 };

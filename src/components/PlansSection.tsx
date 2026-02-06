@@ -1,5 +1,7 @@
+import { motion } from "framer-motion";
 import React from "react";
 import PlansGrid from "./PlansGrid";
+import { Reveal } from "./Reveal";
 
 interface Plan {
   title: string;
@@ -41,27 +43,64 @@ const PlansSection: React.FC<PlansSectionProps> = ({
   return (
     <section
       id='Plans'
-      className='relative overflow-hidden bg-gradient-to-b from-slate-50 to-white py-24 px-6 w-full flex justify-center items-center'
+      className='relative overflow-hidden bg-gradient-to-br from-violet-950 via-purple-950 to-indigo-900 py-28 md:py-36 px-6 w-full flex justify-center items-center'
     >
-      {/* soft background blobs (pure CSS) */}
-      <div className='pointer-events-none absolute -top-20 right-1/3 h-64 w-64 rounded-full bg-indigo-300/25 blur-3xl' />
-      <div className='pointer-events-none absolute -bottom-24 left-1/4 h-72 w-72 rounded-full bg-indigo-200/25 blur-3xl' />
+      {/* Animated background blobs — fun colors */}
+      <div className='pointer-events-none absolute -top-20 right-1/3 h-80 w-80 rounded-full bg-violet-500/15 blur-3xl animate-float' />
+      <div className='pointer-events-none absolute -bottom-24 left-1/4 h-72 w-72 rounded-full bg-amber-500/12 blur-3xl animate-float-slow' />
+
+      {/* Fun floating emojis */}
+      <div
+        className='absolute inset-0 pointer-events-none overflow-hidden'
+        aria-hidden='true'
+      >
+        <motion.span
+          className='absolute text-2xl top-[12%] left-[6%] select-none'
+          animate={{ y: [0, -14, 0], rotate: [0, 8, -8, 0] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        >
+          💰
+        </motion.span>
+        <motion.span
+          className='absolute text-2xl bottom-[15%] right-[8%] select-none'
+          animate={{ y: [0, -10, 0], rotate: [0, -5, 5, 0] }}
+          transition={{
+            duration: 5,
+            repeat: Infinity,
+            ease: "easeInOut",
+            delay: 1,
+          }}
+        >
+          🎁
+        </motion.span>
+      </div>
+
+      <div
+        className='pointer-events-none absolute inset-0 opacity-20'
+        aria-hidden='true'
+        style={{
+          backgroundImage:
+            "radial-gradient(circle at 1px 1px, rgba(255,255,255,0.08) 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
 
       <div className='max-w-7xl mx-auto w-full'>
-        {/* Section Heading — matches 'Our Story' vibe */}
-        <div className='text-center mb-16'>
+        {/* Section Heading — kid-friendly */}
+        <Reveal variant='pop' className='text-center mb-16'>
           <h2
             id='plans-heading'
             className='font-serif font-bold tracking-tight 
                        text-[clamp(2rem,5vw,3rem)] leading-[1.06]
-                       bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-indigo-800 to-indigo-600'
+                       bg-clip-text text-transparent bg-gradient-to-r from-white via-amber-200 to-violet-200'
           >
-            辅导方案
+            🎯 辅导方案
           </h2>
-          <p className='mt-5 text-lg text-slate-600 max-w-3xl mx-auto'>
+          <p className='mt-5 text-lg text-slate-300 max-w-3xl mx-auto'>
             选定制化1对1辅导，或是趣味小组课——每节课都是真人直播、互动满满，进步看得见，靠谱又安心。
+            ✨
           </p>
-        </div>
+        </Reveal>
 
         {/* Grid (kept API the same) */}
         <div className='mx-auto max-w-6xl'>

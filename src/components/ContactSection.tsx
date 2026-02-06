@@ -17,7 +17,7 @@ const ContactSection: React.FC = () => {
       id='contact'
       role='region'
       aria-labelledby='contact-heading'
-      className='relative w-full font-sans bg-gradient-to-b from-slate-50 via-white to-indigo-50/30 py-20 md:py-32 lg:py-40 overflow-hidden'
+      className='relative w-full font-sans bg-gradient-to-b from-slate-100 via-indigo-50/60 to-slate-100 py-28 md:py-36 lg:py-44 overflow-hidden'
     >
       {/* Premium decorative background elements */}
       <div className='pointer-events-none absolute inset-0 -z-10'>
@@ -31,7 +31,7 @@ const ContactSection: React.FC = () => {
 
       <div className='mx-auto w-full max-w-screen-xl 2xl:max-w-screen-2xl px-6 lg:px-8 relative z-10'>
         {/* Premium Heading */}
-        <Reveal className='text-center mb-12 md:mb-20'>
+        <Reveal variant='scale' className='text-center mb-12 md:mb-20'>
           <div className='inline-flex items-center gap-2 mb-4'>
             <div className='w-1.5 h-1.5 rounded-full bg-gradient-to-r from-indigo-600 to-purple-600' />
             <span className='text-xs font-bold text-indigo-600 uppercase tracking-widest'>
@@ -55,7 +55,7 @@ const ContactSection: React.FC = () => {
         <div className='grid gap-10 sm:gap-12 md:gap-16 lg:gap-20 md:grid-cols-12 items-start'>
           {/* Left column (info) - Premium cards */}
           <aside className='md:col-span-5 xl:col-span-4 md:sticky md:top-32 space-y-5'>
-            <Reveal>
+            <Reveal variant='fade-right'>
               <div className='text-slate-900 mb-2'>
                 <p className='text-xs font-bold uppercase tracking-widest text-indigo-600'>
                   ✦ 联系信息
@@ -136,7 +136,11 @@ const ContactSection: React.FC = () => {
           </aside>
 
           {/* Right column (WeChat QR Code) - Premium card */}
-          <Reveal delay={80} className='md:col-span-7 xl:col-span-8'>
+          <Reveal
+            variant='scale'
+            delay={80}
+            className='md:col-span-7 xl:col-span-8'
+          >
             <div className='group relative h-full'>
               {/* Gradient border effect */}
               <div className='absolute -inset-0.5 bg-gradient-to-r from-indigo-600 via-purple-600 to-indigo-600 rounded-3xl opacity-0 group-hover:opacity-100 blur transition-all duration-500' />
