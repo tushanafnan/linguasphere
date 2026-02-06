@@ -1,3 +1,4 @@
+import React from "react";
 import PlansSection from "../components/PlansSection";
 
 const Subscription: React.FC = () => {

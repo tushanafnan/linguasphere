@@ -1,9 +1,10 @@
-import { Menu, X } from "lucide-react";
+﻿import { Menu, X } from "lucide-react";
 import React, { useEffect, useRef, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 
 /**
- * Ultra‑modern Navbar (mobile drawer fix)
- * - Manual SPA navigation (pushState + popstate)
+ * Ultra‑modern Navbar
+ * - React Router navigation (useNavigate + useLocation)
  * - Active link highlight
  * - Drawer: rendered ONLY when open (no default-open issues)
  * - Overlay click‑off, ESC to close, auto-close on ≥md
@@ -21,38 +22,27 @@ const NAV_ITEMS = [
 
 const Navbar: React.FC = () => {
   const navRef = useRef<HTMLElement | null>(null);
+  const routerNavigate = useNavigate();
+  const location = useLocation();
 
   const [isOpen, setIsOpen] = useState(false); // drawer state
-  const [activePath, setActivePath] = useState("/"); // SSR-safe initial
   const [scrolled, setScrolled] = useState(false); // for glass bg
 
-  /* ---------- Mount/init (SSR‑safe) ---------- */
+  // Derive active path from React Router (always in sync, no hydration mismatch)
+  const activePath = location.pathname;
 
-  // Initialize activePath only after mount (avoid hydration mismatches)
-  useEffect(() => {
-    setActivePath(window.location.pathname + window.location.hash);
-  }, []);
-
-  // Force closed on mount (prevents “default open” restores)
+  // Close drawer on route change
   useEffect(() => {
     setIsOpen(false);
-  }, []);
+  }, [location]);
 
-  // React to browser navigation; ESC closes drawer
+  // ESC closes drawer
   useEffect(() => {
-    const onPop = () => {
-      setActivePath(window.location.pathname + window.location.hash);
-      setIsOpen(false);
-    };
     const onKey = (e: KeyboardEvent) => {
       if (e.key === "Escape") setIsOpen(false);
     };
-    window.addEventListener("popstate", onPop);
     window.addEventListener("keydown", onKey);
-    return () => {
-      window.removeEventListener("popstate", onPop);
-      window.removeEventListener("keydown", onKey);
-    };
+    return () => window.removeEventListener("keydown", onKey);
   }, []);
 
   // Close drawer when crossing the md breakpoint (≥768px)
@@ -96,7 +86,7 @@ const Navbar: React.FC = () => {
     };
   }, []);
 
-  /* ---------- Navigation helper (anchors with offset) ---------- */
+  /* ---------- Navigation helper ---------- */
   const navigate = (path: string) => {
     // Redirect to login subdomain
     if (path === "/login") {
@@ -104,26 +94,29 @@ const Navbar: React.FC = () => {
       return;
     }
 
-    window.history.pushState({}, "", path);
-    window.dispatchEvent(new PopStateEvent("popstate"));
+    // Use React Router for SPA navigation (keeps Router state in sync)
+    const hash = path.includes("#") ? path.split("#")[1] : "";
+    const pathname = path.includes("#") ? path.split("#")[0] : path;
+
+    routerNavigate(pathname + (hash ? `#${hash}` : ""));
     setIsOpen(false);
 
-    const hash = path.includes("#") ? path.split("#")[1] : "";
     if (hash) {
-      const el = document.getElementById(hash);
-      if (el) {
-        const cssH =
-          parseInt(
-            getComputedStyle(document.documentElement)
-              .getPropertyValue("--nav-height")
-              .trim()
-              .replace("px", ""),
-          ) || 64;
-        const y =
-          el.getBoundingClientRect().top + window.pageYOffset - (cssH + 8);
-        window.scrollTo({ top: y, behavior: "smooth" });
-        return;
-      }
+      requestAnimationFrame(() => {
+        const el = document.getElementById(hash);
+        if (el) {
+          const cssH =
+            parseInt(
+              getComputedStyle(document.documentElement)
+                .getPropertyValue("--nav-height")
+                .trim()
+                .replace("px", ""),
+            ) || 64;
+          const y =
+            el.getBoundingClientRect().top + window.pageYOffset - (cssH + 8);
+          window.scrollTo({ top: y, behavior: "smooth" });
+        }
+      });
     } else {
       window.scrollTo({ top: 0, behavior: "smooth" });
     }

@@ -17,7 +17,7 @@ const ContactSection: React.FC = () => {
       id='contact'
       role='region'
       aria-labelledby='contact-heading'
-      className='relative w-screen -ml-[calc((100vw-100%)/2)] font-sans bg-gradient-to-b from-slate-50 via-white to-indigo-50/30 py-20 md:py-32 lg:py-40 overflow-hidden'
+      className='relative w-full font-sans bg-gradient-to-b from-slate-50 via-white to-indigo-50/30 py-20 md:py-32 lg:py-40 overflow-hidden'
     >
       {/* Premium decorative background elements */}
       <div className='pointer-events-none absolute inset-0 -z-10'>

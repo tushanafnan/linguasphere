@@ -51,7 +51,7 @@ const PlansSection: React.FC<PlansSectionProps> = ({
         {/* Section Heading — matches 'Our Story' vibe */}
         <div className='text-center mb-16'>
           <h2
-            id='features-heading'
+            id='plans-heading'
             className='font-serif font-bold tracking-tight 
                        text-[clamp(2rem,5vw,3rem)] leading-[1.06]
                        bg-clip-text text-transparent bg-gradient-to-r from-slate-900 via-indigo-800 to-indigo-600'
